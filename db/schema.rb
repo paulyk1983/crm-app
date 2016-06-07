@@ -11,10 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607204335) do
+ActiveRecord::Schema.define(version: 20160607204929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "mailing_street"
+    t.string   "mailing_suite"
+    t.string   "mailing_city"
+    t.string   "mailing_state"
+    t.string   "mailing_zip"
+    t.string   "shipping_street"
+    t.string   "shipping_suite"
+    t.string   "shipping_city"
+    t.string   "shipping_state"
+    t.string   "shipping_zip"
+    t.string   "country"
+    t.string   "secondary_email"
+    t.text     "customer_notes"
+    t.boolean  "registered"
+    t.boolean  "subscribed"
+    t.integer  "rating"
+    t.string   "type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "inquiries", force: :cascade do |t|
     t.integer  "user_id"
