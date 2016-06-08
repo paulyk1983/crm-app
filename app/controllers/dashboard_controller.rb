@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
           last_name: row[5],
           email: row[6],
           phone_number: row[7],
-          created_time: Time.strptime(row[8], "%m/%d/%y %H:%M").to_time,          
+          created_time: Time.strptime(row[8], "%m/%d/%y %H:%M").to_time,
           zip_code: row[13],
           comment: row[15],
           color: row[18],
@@ -28,7 +28,12 @@ class DashboardController < ApplicationController
           width: row[31],
           in_hand_date: row[32],
           lead_time: row[33],
-          lead_number: row[34]
+          lead_number: row[34],
+          metal_end_type: row[37],
+          bow_loop_type: row[38],
+          bow_size: row[40],
+          registered: row[46],
+          subscribed: row[47]          
         )
       end
     end
