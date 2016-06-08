@@ -20,6 +20,12 @@ class DashboardController < ApplicationController
           material: row[20],
           length: row[22],
           application: row[23],
+          ribbon_type: row[24],
+          quantity: row[26],
+          status: row[27],
+          new_lead: row[28],
+          source: row[30],
+          width: row[31],
           
         )
       end
