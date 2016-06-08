@@ -26,7 +26,9 @@ class DashboardController < ApplicationController
           new_lead: row[28],
           source: row[30],
           width: row[31],
-          
+          in_hand_date: row[32],
+          lead_time: row[33],
+          lead_number: row[34]
         )
       end
     end
