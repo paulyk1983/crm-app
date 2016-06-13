@@ -9,8 +9,7 @@ class DashboardController < ApplicationController
         :port => '587',
         :user_name => ENV['EMAIL_USER'],
         :password => ENV['EMAIL_PASSWORD'],
-        :authentication => :plain,
-        :enable_starttls_auto => true
+        :authentication => :plain
       }
     end
 
