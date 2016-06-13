@@ -2,9 +2,16 @@ class Api::V1::CompaniesController < ApplicationController
   def index
     if current_user
       @companies = Company.where(user_id: current_user.id)
-      render 'index.json.jbuilder'     
+      render 'index.json.jbuilder'
     else
       redirect_to '/'
-    end  
-  end 
+    end
+  end
+
+  def create
+    Company.create(
+      user_id: 1,
+      name: params[:name]
+    )
+  end
 end
