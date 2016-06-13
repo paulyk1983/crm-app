@@ -29,6 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # user authorization
 gem 'devise'
 
+# for env
+gem 'dotenv-rails', :groups => [:development, :test], :require => 'dotenv/rails-now'
+
 # email
 gem 'mail'
 
