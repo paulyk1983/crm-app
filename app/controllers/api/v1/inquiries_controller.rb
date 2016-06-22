@@ -1,7 +1,7 @@
-class Api::V1::RequestsController < ApplicationController
+class Api::V1::InquiriesController < ApplicationController
   def index
     if current_user
-      @requests = Company.where(user_id: current_user.id)
+      @inquiry = Inquiry.where(user_id: current_user.id)
       render 'index.json.jbuilder'
     else
       redirect_to '/'
