@@ -68,3 +68,6 @@ group :test do
   gem "launchy", "~> 2.4.2"
   gem "selenium-webdriver", "~> 2.43.0"
 end
+
+# for Heroku
+gem 'rails_12factor', group: :production

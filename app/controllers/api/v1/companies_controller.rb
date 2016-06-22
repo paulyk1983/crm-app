@@ -11,7 +11,7 @@ class Api::V1::CompaniesController < ApplicationController
   def create
     Company.create(
       user_id: 1,
-      name: params[:name]
+      name: 'test-5'
     )
   end
 end
