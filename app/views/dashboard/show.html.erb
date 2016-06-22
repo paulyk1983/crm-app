@@ -1,1 +1,11 @@
 <h1>Dashboard</h1>
+<script>
+$.ajax ({
+      type: 'POST',
+      url: 'http://localhost:3000/api/v1/inquiries',
+      Accept: 'application/json',
+      success: function() {
+          alert('Something went wrong. Pleaes notify webmaster');
+      }
+  });
+</script>

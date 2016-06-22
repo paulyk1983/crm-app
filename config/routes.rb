@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/companies' => 'companies#index'
       post '/companies' => 'companies#create'
+
+      get '/inquiries' => 'inquiries#index'
+      post '/inquiries' => 'inquiries#create'
     end
   end
 
