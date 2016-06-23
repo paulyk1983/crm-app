@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613193711) do
+ActiveRecord::Schema.define(version: 20160623155552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160613193711) do
     t.string   "bow_loop_type"
     t.string   "bow_size"
     t.string   "status"
+    t.string   "attachment"
   end
 
   create_table "products", force: :cascade do |t|
