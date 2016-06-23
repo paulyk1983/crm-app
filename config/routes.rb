@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   get '/dashboard' => 'dashboard#show'
+
+  get '/inquiries/:id' => 'inquiries#show'
 
   namespace :api do
     namespace :v1 do

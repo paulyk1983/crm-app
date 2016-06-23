@@ -13,7 +13,7 @@ class Api::V1::InquiriesController < ApplicationController
       user_id: 1,
       first_name: params[:first_name],
       last_name: params[:last_name],
-      company: params[:company],
+      company_name: params[:company],
       email: params[:email],
       phone_number: params[:phone],
       zip_code: params[:zip_code],
@@ -35,13 +35,15 @@ class Api::V1::InquiriesController < ApplicationController
       attachment: params[:attachment]
     )
 
-    body = inquiry.first_name + ' from ' + 'inquiry.company' + ' has requested a quote for ' + inquiry.material + ' ' + inquiry.product + ' 
+    body = inquiry.first_name + ' from ' + inquiry.company_name + ' has requested a quote for ' + inquiry.material + ' ' + inquiry.product + ' 
 
     Quantity: ' + inquiry.quantity + ' 
 
     Lead Time: ' + inquiry.lead_time + ' 
 
-    In Hand Date: ' + inquiry.in_hand_date.to_s + ' '
+    In Hand Date: ' + inquiry.in_hand_date.to_s + ' 
+
+    See all details: http://localhost:3000/inquiries/' + inquiry.id.to_s + ''
 
     Mail.defaults do
       delivery_method :smtp, {
