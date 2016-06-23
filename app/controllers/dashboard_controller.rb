@@ -16,7 +16,7 @@ class DashboardController < ApplicationController
     # Mail.new(
     #   :to => 'paulyk1983@gmail.com',
     #   :from => 'paulyk1983@gmail.com',
-    #   :subject => 'test email',
+    #   :subject => 'New Quote Request',
     #   :body => File.read('app/views/submission_email.html.erb')
     # ).deliver!
 

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
       get '/inquiries' => 'inquiries#index'
       post '/inquiries' => 'inquiries#create'
+
+      post '/emails' => 'emails#create'
     end
   end
 
