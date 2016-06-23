@@ -31,18 +31,17 @@ class Api::V1::InquiriesController < ApplicationController
       ribbon_type: params[:ribbon_type],
       metal_end_type: params[:metal_end_type],
       bow_loop_type: params[:bow_loop_type],
-      bow_size: params[:bow_size]
+      bow_size: params[:bow_size],
+      attachment: params[:attachment]
     )
 
-    body = inquiry.first_name + ' from ' + inquiry.company + ' has requested a quote for ' + material + ' ' + product +
+    body = inquiry.first_name + ' from ' + 'inquiry.company' + ' has requested a quote for ' + inquiry.material + ' ' + inquiry.product + ' 
 
-    'Quantity: ' + quantity +
+    Quantity: ' + inquiry.quantity + ' 
 
-    'Lead Time: ' + lead_time +
+    Lead Time: ' + inquiry.lead_time + ' 
 
-    'In Hand Date: ' + in_hand_date +
-
-    'Comment: ' + comment
+    In Hand Date: ' + inquiry.in_hand_date.to_s + ' '
 
     Mail.defaults do
       delivery_method :smtp, {
