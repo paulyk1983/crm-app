@@ -73,6 +73,14 @@ class Inquiry < ActiveRecord::Base
       comment = ""
     end
 
+    social_media = '<p>Connect with us on these social networks:</p>
+      <p>
+        <a href="https://www.facebook.com/finishlinecorp" target="_blank">Facebook</a>
+       | <a href="https://twitter.com/finishlineinc" target="_blank">Twitter</a>
+        | <a href="https://plus.google.com/+Finishlinecorp/" target="_blank">Google +</a>
+         | <a href="http://www.linkedin.com/company/finish-line-custom-finishing" target="_blank">LinkedIn</a> | 
+         <a href="http://www.pinterest.com/finishlineinc/" target="_blank">Pinterest</a></p>'
+
     File.open('app/templates/request_confirmation.html.erb', 'w') { |file| file.write(
       "<p>Your quote request has been submitted and will be processed shortly. Please confirm the details below. You can reply to this email for any changes you would like to make to your request.</p>
       <div style='background-color:#f1ecf6; padding:15px; margin-bottom:20px;'>
@@ -85,7 +93,8 @@ class Inquiry < ActiveRecord::Base
       </div>        
       #{comment}      
       <p><img alt='Finish Line Custom Finishing Inc.' src='https://s3.amazonaws.com/ls-account-data-3-us-east-1/store-finish-line-custom-finishing-53e922c767901/themes/boxie/resources/img/logo%202014%20b%20small.jpg'>
-      <br><strong>835 Sterling Ave.<br>Palatine, IL 60067</strong><br>(847) 729-7320<br></p>"
+      <br><strong>835 Sterling Ave.<br>Palatine, IL 60067</strong><br>(847) 729-7320<br></p>
+      #{social_media}"
       ) }
 
     body = File.read('app/templates/request_confirmation.html.erb')
