@@ -35,8 +35,8 @@ class Api::V1::InquiriesController < ApplicationController
       attachment: params[:attachment]
     )
 
-    inquiry.send_request_alert(inquiry)
-
+    # inquiry.send_request_alert(inquiry)
+    inquiry.send_request_confirmation(inquiry)
     
 
     redirect_to 'https://finishlinecorp.com/test'

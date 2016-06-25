@@ -33,4 +33,80 @@ class Inquiry < ActiveRecord::Base
       :body => body
     ).deliver!
   end
+
+  def send_request_confirmation(inquiry)
+
+    contact_info = "<p>
+        <strong>Name:</strong> #{inquiry.first_name}<br>
+        <strong>Company:</strong> #{inquiry.company_name}<br>
+        <strong>Email:</strong> #{inquiry.email}<br>
+        <strong>Zip Code:</strong> #{inquiry.zip_code}<br>"
+    if inquiry.phone_number
+      contact_info += "<strong>Phone Number:</strong> #{inquiry.phone_number}<br></p>"
+    else
+      contact_info += "</p>"
+    end
+
+    product_info = "<p>
+      <strong>Product Type:</strong> #{inquiry.product}<br>
+      <strong>Material:</strong> #{inquiry.material}<br>
+      <strong>Color:</strong> #{inquiry.color}<br>
+      <strong>Length:</strong> #{inquiry.length}<br>
+      <strong>Width:</strong> #{inquiry.width}"
+    if inquiry.bow_size
+      product_info += "<br><strong>Bow Size:</strong> #{inquiry.bow_size}"
+    end
+    if inquiry.attachment
+      product_info += "<br><strong>Attachment Type:</strong> #{inquiry.attachment}"
+    end
+    product_info += "<br><strong>Application/Use:</strong> #{inquiry.application}
+      <br><strong>Lead Time:</strong> #{inquiry.lead_time}"
+    if inquiry.in_hand_date
+      product_info += "<br><strong>In Hand Date:</strong> #{inquiry.in_hand_date.strftime('%m/%d/%Y')}</p>"
+    else
+      product_info += "</p>"
+    end
+
+    if inquiry.comment
+      comment = "<div style='background-color:#f1ecf6; padding:15px;  margin-bottom:20px;'><h2>Comment:</h2><p>#{inquiry.comment}</p></div>"
+    else
+      comment = ""
+    end
+
+    File.open('app/templates/request_confirmation.html.erb', 'w') { |file| file.write(
+      "<p>Your quote request has been submitted and will be processed shortly. Please confirm the details below. You can reply to this email for any changes you would like to make to your request.</p>
+      <div style='background-color:#f1ecf6; padding:15px; margin-bottom:20px;'>
+        <h2>Contact Info:</h2>
+        #{contact_info}
+      </div>  
+      <div style='background-color:#f1ecf6; padding:15px; margin-bottom:20px;'>
+        <h2>Product Info:</h2>
+        #{product_info}
+      </div>        
+      #{comment}      
+      <p><img alt='Finish Line Custom Finishing Inc.' src='https://s3.amazonaws.com/ls-account-data-3-us-east-1/store-finish-line-custom-finishing-53e922c767901/themes/boxie/resources/img/logo%202014%20b%20small.jpg'>
+      <br><strong>835 Sterling Ave.<br>Palatine, IL 60067</strong><br>(847) 729-7320<br></p>"
+      ) }
+
+    body = File.read('app/templates/request_confirmation.html.erb')
+
+    Mail.defaults do
+      delivery_method :smtp, {
+        :address => 'smtp.zoho.com',
+        :port => '587',
+        :user_name => ENV['EMAIL_USER'],
+        :password => ENV['EMAIL_PASSWORD'],
+        :authentication => :plain
+      }
+    end
+
+    Mail.new(
+      :to => 'paulyk1983@gmail.com',
+      :from => 'sales@finishlinecorp.com',
+      :subject => 'Quote Request Confirmation',
+      :body => body,
+      :content_type => 'text/html; charset=UTF-8'
+    ).deliver!
+
+  end
 end
