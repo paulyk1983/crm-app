@@ -4,7 +4,8 @@ class InquiriesController < ApplicationController
     status = params[:status]
     if status == "reject" 
       @inquiry.update(status: "rejected")  
-      # insert flash message
+      flash[:success] = 'This inquiry has been rejected. No further action required.'
+      redirect_to "/inquiries/#{@inquiry.id}"
     end
   end
 
