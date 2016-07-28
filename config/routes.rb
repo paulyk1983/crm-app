@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get '/inquiries/:id' => 'inquiries#show'
 
+  get '/messages/new' => 'messages#new'
+  post '/messages' => 'messages#create'
+
   namespace :api do
     namespace :v1 do
       get '/companies' => 'companies#index'

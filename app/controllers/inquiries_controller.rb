@@ -3,7 +3,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.find_by(id: params[:id])
     status = params[:status]
     if status == "reject" 
-      @inquiry.update(status: "rejected")  
+      @inquiry.update(status: "rejected") 
       flash[:success] = 'This inquiry has been rejected. No further action required.'
       redirect_to "/inquiries/#{@inquiry.id}"
     end
