@@ -1,3 +1,31 @@
 <h1>Inquiry</h1>
-<p>First Name: <%= @inquiry.first_name %></p>
-<p>Status: <%= @inquiry.status %></p>
+<h3>Number <%= @inquiry.lead_number %></h3>
+<div style="padding:25px;">
+  <p><b>Name:</b> <%= @inquiry.first_name %> <%= @inquiry.last_name %></p>
+  <p><b>Company:</b> <%= @inquiry.company_name %></p>
+  <p><b>Email:</b> <%= @inquiry.email %></p>
+  <p><b>Phone:</b> <%= @inquiry.phone_number %></p>
+  <p><b>Zip Code:</b> <%= @inquiry.zip_code %></p>
+  <p><b>Source:</b> <%= @inquiry.source %></p>
+  <p><b>Product:</b> <%= @inquiry.product %></p>
+  <p><b>Material:</b> <%= @inquiry.material %></p>
+  <p><b>Color:</b> <%= @inquiry.color %></p>
+  <p><b>Length:</b> <%= @inquiry.length %></p>
+  <p><b>Width:</b> <%= @inquiry.width %></p>
+  <p><b>Quantity:</b> <%= @inquiry.quantity %></p>
+  <p><b>Lead Time:</b> <%= @inquiry.lead_time %></p>
+  <p><b>In Hand Date:</b> <%= @inquiry.in_hand_date %></p>
+  <p><b>Application:</b> <%= @inquiry.application %></p>
+  <p><b>Comment:</b> <%= @inquiry.comment %></p>
+  <p><b>Status:</b> <%= @inquiry.status %></p>
+  <p><b>New Lead?</b> <%= @inquiry.new_lead %></p>
+  <p><b>Registered?</b> <%= @inquiry.registered %></p>
+  <p><b>Suscribed?</b> <%= @inquiry.subscribed %></p>  
+  <p><b>ribbon_type:</b> <%= @inquiry.ribbon_type %></p>
+  <p><b>Bow Loop Type:</b> <%= @inquiry.bow_loop_type %></p>
+  <p><b>Bow Size:</b> <%= @inquiry.bow_size %></p>
+  <p><b>Metal End Type:</b> <%= @inquiry.metal_end_type %></p>
+  <p><b>Attachment:</b> <%= @inquiry.attachment %></p>
+  <p><b>Created At:</b> <%= @inquiry.created_at %></p>
+  <p><b>Updated At:</b> <%= @inquiry.updated_at %></p>
+</div>
