@@ -18,7 +18,7 @@ class Inquiry < ActiveRecord::Base
         <strong>Zip Code:</strong> #{inquiry.zip_code}<br>
         <strong>Comment:</strong> #{inquiry.comment}<br> 
       </p>
-      <p><a href='http://localhost:3000/dashboard'>Accept Request</a></p>
+      <p><a href='http://localhost:3000/inquiries/#{inquiry.id}?status=accept'>Accept Request</a></p>
       <p><a href='http://localhost:3000/inquiries/#{inquiry.id}?status=reject'>Reject Request</a></p>   "
       ) }
 

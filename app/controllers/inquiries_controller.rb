@@ -9,9 +9,21 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.find_by(id: params[:id])
     status = params[:status]
     if status == "reject" 
-      @inquiry.update(status: "rejected") 
-      flash[:success] = 'This inquiry has been rejected. No further action required.'
-      redirect_to "/inquiries/#{@inquiry.id}"
+      if @inquiry.update(status: "rejected") 
+        flash[:success] = 'This inquiry has been rejected. No further action required.'
+        redirect_to "/inquiries/#{@inquiry.id}"
+      else
+        flash[:error] = 'Oh no, something went wrong. Inquiry has failed to update.'
+        redirect_to "/inquiries/#{@inquiry.id}"
+      end
+    elsif status == "accept"
+      if @inquiry.update(status: "accepted") 
+        flash[:success] = "Success! Inquiry status has been updated to 'accepted'."
+        redirect_to "/inquiries/#{@inquiry.id}"
+      else
+        flash[:error] = 'Oh no, something went wrong. Inquiry has failed to update.'
+        redirect_to "/inquiries/#{@inquiry.id}"
+      end
     end
   end
 
