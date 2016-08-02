@@ -9,18 +9,18 @@ class MessagesController < ApplicationController
 
     Mail.defaults do
       delivery_method :smtp, {
-        :address => 'smtp.gmail.com',
+        :address => 'smtp.zoho.com',
         :port => '587',
-        :user_name => ENV['GMAIL_USER'],
-        :password => ENV['GMAIL_PASSWORD'],
+        :user_name => ENV['EMAIL_USER'],
+        :password => ENV['EMAIL_PASSWORD'],
         :authentication => :plain
       }
     end
 
     Mail.new(
       :to => params[:receiver],
-      :from => 'paulyk1983@gmail.com',
-      :subject => 'New Quote Request',
+      :from => 'sales@finishlinecorp.com',
+      :subject => 'Regarding your quote from Finish Line Inc.',
       :body => params[:message],
       :content_type => 'text/html; charset=UTF-8'
     ).deliver!
