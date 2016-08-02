@@ -1,4 +1,10 @@
 class InquiriesController < ApplicationController
+  def index
+
+    # change with when importing a data from Zoho crm - will need to configure pagination
+    @inquiries = Inquiry.all
+  end
+
   def show
     @inquiry = Inquiry.find_by(id: params[:id])
     status = params[:status]

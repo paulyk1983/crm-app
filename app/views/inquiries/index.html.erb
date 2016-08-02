@@ -1,0 +1,10 @@
+<h1><u>Inquiries</u></h1>
+<% @inquiries.each do |inquiry| %>
+  <hr>
+  <div style="padding:25px;">
+    <h3><%= inquiry.first_name %> <%= inquiry.last_name %></h3>
+    <h4><%= inquiry.email %></h4>
+    <h4><%= inquiry.product %></h4>
+    <a href="/inquiries/<%= inquiry.id %>" class="btn btn-info">View Details</a>
+  </div>  
+<% end %>

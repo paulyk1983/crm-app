@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get '/dashboard' => 'dashboard#show'
 
+  get '/inquiries' => 'inquiries#index'
   get '/inquiries/:id' => 'inquiries#show'
 
   get '/messages/new' => 'messages#new'
