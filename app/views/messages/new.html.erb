@@ -1,1 +1,14 @@
 <h1>Send a message</h1>
+<%= form_tag '/messages' do %> 
+  <% if params[:status] == 'rejected_inquiry' %>
+    <div>
+      <textarea style="width:400px; height:150px;" name="message">Dear <%= params[:first_name] %>, thank you for your inquiry but ...</textarea>
+    </div>
+    <div>
+      <%= hidden_field_tag :receiver, params[:email] %>
+    </div>
+    <div>
+      <%= submit_tag "Submit" %>
+    </div>
+  <% end %>
+<% end %>

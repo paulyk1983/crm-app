@@ -115,7 +115,7 @@ class Inquiry < ActiveRecord::Base
     end
 
     Mail.new(
-      :to => 'paulyk1983@gmail.com',
+      :to => inquiry.email,
       :from => 'sales@finishlinecorp.com',
       :subject => 'Quote Request Confirmation',
       :body => body,
