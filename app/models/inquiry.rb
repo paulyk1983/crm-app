@@ -9,13 +9,17 @@ class Inquiry < ActiveRecord::Base
 
     File.open('app/templates/request_alert.html.erb', 'w') { |file| file.write(
       "<p>#{inquiry.first_name} from #{inquiry.company} has submitted a quote request.</p>
-      <p><strong>Product:</strong> #{inquiry.product}<br>
-      <strong>Material:</strong> #{inquiry.material}<br>
-      <strong>Quantity:</strong> #{inquiry.quantity}<br>
-      <strong>Lead Time:</strong> #{inquiry.lead_time}<br>
-      <strong>In Hand Date:</strong> #{inquiry.in_hand_date}<br>
-      <strong>Zip Code:</strong> #{inquiry.zip_code}<br>
-      <strong>Comment:</strong> #{inquiry.comment}<br>  "
+      <p>
+        <strong>Product:</strong> #{inquiry.product}<br>
+        <strong>Material:</strong> #{inquiry.material}<br>
+        <strong>Quantity:</strong> #{inquiry.quantity}<br>
+        <strong>Lead Time:</strong> #{inquiry.lead_time}<br>
+        <strong>In Hand Date:</strong> #{inquiry.in_hand_date}<br>
+        <strong>Zip Code:</strong> #{inquiry.zip_code}<br>
+        <strong>Comment:</strong> #{inquiry.comment}<br> 
+      </p>
+      <p><a href='http://localhost:3000/dashboard'>Accept Request</a></p>
+      <p><a href='http://localhost:3000/inquiries/#{inquiry.id}?status=reject'>Reject Request</a></p>   "
       ) }
 
     body = File.read('app/templates/request_alert.html.erb')
