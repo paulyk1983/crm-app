@@ -31,13 +31,21 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.find_by(id: params[:id])
   end
 
-  # def update
-  #   @inquiry = Inquiry.find_by(id: params[:id])
-  #   status = params[:status]
-  #   if status == "reject" 
-  #     @inquiry.update(status: "rejected")  
-  #   end
+  def update
+    @inquiry = Inquiry.find_by(id: params[:id])
+    @inquiry.update(inquiry_params)
     
-  #   redirect_to "/inquiries/#{@inquiry.id}"
-  # end
+    if @inquiry.save!
+      flash[:success] = "Success! Inquiry has been updated."
+    else
+      flash[:error] = "Something went wrong. Inquiry was not updated"    
+    end
+    redirect_to "/inquiries/#{@inquiry.id}"
+  end
+
+  private
+
+    def inquiry_params
+      params.permit(:first_name, :last_name, :company_name, :email, :phone_number, :zip_code, :product, :material, :color, :length, :width, :quantity, :lead_time, :in_hand_date, :comment, :application, :source, :status, :new_lead, :registered, :subscribed, :ribbon_type, :bow_size, :bow_loop_type, :metal_end_type, :attachment)
+    end
 end

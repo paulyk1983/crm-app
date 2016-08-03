@@ -1,2 +1,114 @@
-<h1>Edit Inquiry</h1>
-<h2><%= @Inquiry.email %></h2>
+<div style="padding:25px;">
+  <h1>Edit Inquiry</h1>
+  <%= form_tag "/inquiries/#{@inquiry.id}", method: :patch do %>
+    <div>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, @inquiry.first_name %>
+    </div> 
+    <div>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, @inquiry.last_name %>
+    </div>
+    <div>
+      <%= label_tag :company_name %>
+      <%= text_field_tag :company_name, @inquiry.company_name %>
+    </div>
+    <div>
+      <%= label_tag :email %>
+      <%= text_field_tag :email, @inquiry.email %>
+    </div> 
+    <div>
+      <%= label_tag :phone_number %>
+      <%= text_field_tag :phone_number, @inquiry.phone_number %>
+    </div>
+    <div>
+      <%= label_tag :zip_code %>
+      <%= text_field_tag :zip_code, @inquiry.zip_code %>
+    </div>   
+    <div>
+      <%= label_tag :source %>
+      <%= text_field_tag :source, @inquiry.source %>
+    </div> 
+    <div>
+      <%= label_tag :product %>
+      <%= text_field_tag :product, @inquiry.product %>
+    </div>
+    <div>
+      <%= label_tag :material %>
+      <%= text_field_tag :material, @inquiry.material %>
+    </div> 
+    <div>
+      <%= label_tag :color %>
+      <%= text_field_tag :color, @inquiry.color %>
+    </div>
+    <div>
+      <%= label_tag :length %>
+      <%= text_field_tag :length, @inquiry.length %>
+    </div>
+    <div>
+      <%= label_tag :width %>
+      <%= text_field_tag :width, @inquiry.width %>
+    </div>
+    <div>
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity, @inquiry.quantity %>
+    </div>
+    <div>
+      <%= label_tag :lead_time %>
+      <%= text_field_tag :lead_time, @inquiry.lead_time %>
+    </div>
+    <div>
+      <%= label_tag :in_hand_date %>
+      <%= text_field_tag :in_hand_date, @inquiry.in_hand_date %>
+    </div>
+    <div>
+      <%= label_tag :application %>
+      <%= text_field_tag :application, @inquiry.application %>
+    </div>
+    <div>
+      <%= label_tag :comment %>
+      <%= text_field_tag :comment, @inquiry.comment %>
+    </div>
+    <div>
+      <%= label_tag :status %>
+      <%= text_field_tag :status, @inquiry.status %>
+    </div>
+    <div>
+      <%= label_tag :new_lead %>
+      <%= text_field_tag :new_lead, @inquiry.new_lead %>
+    </div>
+    <div>
+      <%= label_tag :registered %>
+      <%= text_field_tag :registered, @inquiry.registered %>
+    </div>
+    <div>
+      <%= label_tag :subscribed %>
+      <%= text_field_tag :subscribed, @inquiry.subscribed %>
+    </div>
+    <div>
+      <%= label_tag :ribbon_type %>
+      <%= text_field_tag :ribbon_type, @inquiry.ribbon_type %>
+    </div>
+    <div>
+      <%= label_tag :bow_size %>
+      <%= text_field_tag :bow_size, @inquiry.bow_size %>
+    </div>
+    <div>
+      <%= label_tag :bow_loop_type %>
+      <%= text_field_tag :bow_loop_type, @inquiry.bow_loop_type %>
+    </div>
+    <div>
+      <%= label_tag :metal_end_type %>
+      <%= text_field_tag :metal_end_type, @inquiry.metal_end_type %>
+    </div>
+    <div>
+      <%= label_tag :attachment %>
+      <%= text_field_tag :attachment, @inquiry.attachment %>
+    </div>
+
+    <div>
+      <%= submit_tag "Submit" %>
+    </div>
+  <% end %>
+</div>
+

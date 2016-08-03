@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get '/inquiries' => 'inquiries#index'
   get '/inquiries/:id' => 'inquiries#show'
+  get '/inquiries/:id/edit' => 'inquiries#edit'
+  patch '/inquiries/:id' => 'inquiries#update'
 
   get '/messages/new' => 'messages#new'
   post '/messages' => 'messages#create'

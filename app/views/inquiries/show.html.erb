@@ -1,5 +1,6 @@
 <div style="padding:25px;">
   <div>
+    <a href="/inquiries/<%= @inquiry.id %>/edit" class="btn btn-danger">Edit</a>
     <a href="/messages/new?email=<%= @inquiry.email %>&first_name=<%= @inquiry.first_name %>&status=<%= @inquiry.status %>" class="btn btn-warning">Send Message</a>
     <a href="/quotes/new" class="btn btn-success">Send Quotes</a>
   </div>
@@ -25,7 +26,7 @@
     <p><b>New Lead?</b> <%= @inquiry.new_lead %></p>
     <p><b>Registered?</b> <%= @inquiry.registered %></p>
     <p><b>Suscribed?</b> <%= @inquiry.subscribed %></p>  
-    <p><b>ribbon_type:</b> <%= @inquiry.ribbon_type %></p>
+    <p><b>Ribbon Type:</b> <%= @inquiry.ribbon_type %></p>
     <p><b>Bow Loop Type:</b> <%= @inquiry.bow_loop_type %></p>
     <p><b>Bow Size:</b> <%= @inquiry.bow_size %></p>
     <p><b>Metal End Type:</b> <%= @inquiry.metal_end_type %></p>
