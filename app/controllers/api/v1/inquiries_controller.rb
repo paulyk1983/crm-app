@@ -9,31 +9,7 @@ class Api::V1::InquiriesController < ApplicationController
   end
 
   def create
-    inquiry = Inquiry.create(
-      user_id: 1,
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      company_name: params[:company],
-      email: params[:email],
-      phone_number: params[:phone],
-      zip_code: params[:zip_code],
-      source: params[:source],
-      product: params[:product],
-      material: params[:material],
-      color: params[:color],
-      length: params[:length],
-      width: params[:width],
-      quantity: params[:quantity],
-      lead_time: params[:lead_time],
-      in_hand_date: params[:in_hand_date],
-      application: params[:application],
-      comment: params[:comment],
-      ribbon_type: params[:ribbon_type],
-      metal_end_type: params[:metal_end_type],
-      bow_loop_type: params[:bow_loop_type],
-      bow_size: params[:bow_size],
-      attachment: params[:attachment]
-    )
+    inquiry = Inquiry.create(inquiry_params)
 
     # inquiry.send_request_alert(inquiry)
     inquiry.send_request_confirmation(inquiry)
@@ -42,4 +18,10 @@ class Api::V1::InquiriesController < ApplicationController
 
     redirect_to 'https://finishlinecorp.com/test-crm'
   end
+
+  private
+
+    def inquiry_params
+      params.permit(:first_name, :last_name, :company_name, :email, :phone_number, :zip_code, :product, :material, :color, :length, :width, :quantity, :lead_time, :in_hand_date, :comment, :application, :source, :status, :new_lead, :registered, :subscribed, :ribbon_type, :bow_size, :bow_loop_type, :metal_end_type, :attachment)
+    end
 end
