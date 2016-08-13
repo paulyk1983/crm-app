@@ -37,6 +37,8 @@ class InquiriesController < ApplicationController
     success_message = "Success! Inquiry has been updated."
     if params[:status] == "rejected"
       success_message = "This inquiry has been rejected."
+    else
+      success_message = "This inquiry has been approved!"
     end
     
     if @inquiry.save!
