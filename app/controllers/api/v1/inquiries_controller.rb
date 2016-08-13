@@ -8,12 +8,23 @@ class Api::V1::InquiriesController < ApplicationController
     end
   end
 
-  def create
-    inquiry = Inquiry.create(inquiry_params)
+  def create  
+    # ADD INQUIRY TO DATABASE
+    inquiry = Inquiry.new(inquiry_params)
+
+    # CHECK EMAIL TO SEE IF NEW LEAD
+    checkEmail = Inquiry.find_by(email: inquiry.email)
+    if !checkEmail
+      inquiry.new_lead = true
+    else
+      inquiry.new_lead = false
+    end
+
+    inquiry.save
 
     # inquiry.send_request_alert(inquiry)
-    inquiry.send_request_confirmation(inquiry)
-    inquiry.send_request_alert(inquiry)
+    # inquiry.send_request_confirmation(inquiry)
+    # inquiry.send_request_alert(inquiry)
     
 
     redirect_to 'https://finishlinecorp.com/test-crm'
