@@ -39,6 +39,16 @@ class InquiriesController < ApplicationController
       success_message = "This inquiry has been rejected."
     else
       success_message = "This inquiry has been approved!"
+
+      # need logic for when a new contact is made with an existing company, need logic to parse company string
+
+      # check for contact
+      existing_contact = Contact.find_by(email: params[:email])
+      if !exisiting_contact
+        # create contact
+      end
+
+      # check for company
     end
     
     if @inquiry.save!
