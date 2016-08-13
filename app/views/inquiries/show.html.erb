@@ -2,6 +2,8 @@
   <div>
     <a href="/inquiries/<%= @inquiry.id %>/edit" class="btn btn-primary">Edit</a>
     <a href="/messages/new?email=<%= @inquiry.email %>&first_name=<%= @inquiry.first_name %>&status=<%= @inquiry.status %>" class="btn btn-warning">Send Message</a>
+    
+    <!-- THIS CAN BE MADE INTO A PARTIAL -->
     <% if @inquiry.status %>        
         <a href="/quotes/new" class="btn btn-success">Send Quotes</a>           
     <% else %>
