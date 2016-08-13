@@ -13,9 +13,9 @@ class Api::V1::InquiriesController < ApplicationController
     inquiry = Inquiry.new(inquiry_params)
 
     # CHECK EMAIL TO SEE IF NEW LEAD
-    checkEmail = Inquiry.find_by(email: inquiry.email)
-    if !checkEmail
-      inquiry.new_lead = true
+    repeat_inquiry = Inquiry.find_by(email: inquiry.email)
+    if !repeat_inquiry
+      inquiry.new_lead = true           
     else
       inquiry.new_lead = false
     end

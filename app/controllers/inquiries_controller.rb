@@ -34,9 +34,13 @@ class InquiriesController < ApplicationController
   def update
     @inquiry = Inquiry.find_by(id: params[:id])
     @inquiry.update(inquiry_params)
+    success_message = "Success! Inquiry has been updated."
+    if params[:status] == "rejected"
+      success_message = "This inquiry has been rejected."
+    end
     
     if @inquiry.save!
-      flash[:success] = "Success! Inquiry has been updated."
+      flash[:success] = success_message
     else
       flash[:error] = "Something went wrong. Inquiry was not updated"    
     end

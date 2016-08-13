@@ -2,7 +2,14 @@
   <div>
     <a href="/inquiries/<%= @inquiry.id %>/edit" class="btn btn-danger">Edit</a>
     <a href="/messages/new?email=<%= @inquiry.email %>&first_name=<%= @inquiry.first_name %>&status=<%= @inquiry.status %>" class="btn btn-warning">Send Message</a>
-    <a href="/quotes/new" class="btn btn-success">Send Quotes</a>
+    <% if @inquiry.status %>        
+        <a href="/quotes/new" class="btn btn-success">Send Quotes</a>           
+    <% else %>
+        <%= form_tag "/inquiries/#{@inquiry.id}", method: 'patch' do %>
+            <%= hidden_field_tag "status", "rejected" %>
+            <%= submit_tag "Reject" %>  
+        <% end %>      
+    <%  end %>    
   </div>
   <h3>Inquiry: <%= @inquiry.lead_number %></h3>
   <div>
