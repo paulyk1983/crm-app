@@ -1,10 +1,41 @@
-<h1><u>Inquiries</u></h1>
-<% @inquiries.each do |inquiry| %>
-  <hr>
-  <div style="padding:25px;">
-    <h3><%= inquiry.first_name %> <%= inquiry.last_name %></h3>
-    <h4><%= inquiry.email %></h4>
-    <h4><%= inquiry.product %></h4>
-    <a href="/inquiries/<%= inquiry.id %>" class="btn btn-info">View Details</a>
-  </div>  
-<% end %>
+<h1 style="margin-left:15px;"><u>Inquiries</u></h1>
+<hr>
+<div class="container record-table">
+  <div class="row table-head">
+    <div class="col-md-4">
+      <h2>Info</h2>
+    </div>
+    <div class="col-md-8">
+      <h2>Date Created</h2>
+    </div>
+  </div>
+
+  <!-- THIS NEEDS TO BE CONVERTED TO ANGULAR,,, SOON, SO DON'T SPEND TOO MUCH TIME ON THIS -->
+  <% @inquiries.each do |inquiry| %>
+    <div class="row table-row">
+      <div class="col-md-4">
+        <h3>Name: <%= inquiry.first_name %> <%= inquiry.last_name %></h3>
+        <h4>Email: <%= inquiry.email %></h4>
+        <h4>Product: <%= inquiry.product %></h4>
+        <a href="/inquiries/<%= inquiry.id %>" class="btn btn-info">View Details</a>
+      </div>  
+      <div class="col-md-8">
+        <h3><%= inquiry.created_at.strftime('%m/%d/%Y') %></h3>
+      </div>
+    </div>
+  <% end %>
+
+<style>
+.table-row {  
+  border: 1px solid black;
+}
+
+.table-row div {
+  padding: 25px;
+  border-right: 1px solid black;
+}
+.table-head div {
+  background-color:lightgray;
+  border: 1px solid black;
+}
+</style>
