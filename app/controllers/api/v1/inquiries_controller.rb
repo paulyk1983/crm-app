@@ -22,7 +22,7 @@ class Api::V1::InquiriesController < ApplicationController
 
     inquiry.save
 
-    current_url = request.original_url
+    current_url = request.base_url
 
     inquiry.send_request_alert(inquiry, current_url)
     inquiry.send_request_confirmation(inquiry)
