@@ -22,9 +22,9 @@ class Api::V1::InquiriesController < ApplicationController
 
     inquiry.save
 
-    # inquiry.send_request_alert(inquiry)
-    # inquiry.send_request_confirmation(inquiry)
-    # inquiry.send_request_alert(inquiry)
+    inquiry.send_request_alert(inquiry)
+    inquiry.send_request_confirmation(inquiry)
+    inquiry.send_request_alert(inquiry)
     
 
     redirect_to 'https://finishlinecorp.com/test-crm'
