@@ -35,7 +35,7 @@ class Inquiry < ActiveRecord::Base
     end
 
     Mail.new(
-      :to => 'sales@finishlinecorp.com',
+      :to => User.first.email,
       :from => 'paulyk1983@gmail.com',
       :subject => 'New Quote Request',
       :body => body,
