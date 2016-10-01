@@ -5,7 +5,7 @@ class Inquiry < ActiveRecord::Base
   has_many :quotes
   has_many :samples
 
-  def send_request_alert(inquiry)
+  def send_request_alert(inquiry, current_url)
 
     File.open('app/templates/request_alert.html.erb', 'w') { |file| file.write(
       "<p>#{inquiry.first_name} from #{inquiry.company} has submitted a quote request.</p>
@@ -18,8 +18,8 @@ class Inquiry < ActiveRecord::Base
         <strong>Zip Code:</strong> #{inquiry.zip_code}<br>
         <strong>Comment:</strong> #{inquiry.comment}<br> 
       </p>
-      <p><a href='#{request.original_url}/inquiries/#{inquiry.id}?status=accept'>Accept Request</a></p>
-      <p><a href='#{request.original_url}/inquiries/#{inquiry.id}?status=reject'>Reject Request</a></p>   "
+      <p><a href='#{current_url}/inquiries/#{inquiry.id}?status=accept'>Accept Request</a></p>
+      <p><a href='#{current_url}/inquiries/#{inquiry.id}?status=reject'>Reject Request</a></p>   "
       ) }
 
     body = File.read('app/templates/request_alert.html.erb')
