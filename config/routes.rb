@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/messages/new' => 'messages#new'
   post '/messages' => 'messages#create'
 
+  get '/test_form' => 'test_form#show'
+
   namespace :api do
     namespace :v1 do
       get '/companies' => 'companies#index'
