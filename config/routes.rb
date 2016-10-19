@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get '/test_form' => 'test_form#show'
 
+  get '/contacts' => 'contacts#index'
+  get '/contacts/:id' => 'contacts#show'
+
   namespace :api do
     namespace :v1 do
       get '/companies' => 'companies#index'

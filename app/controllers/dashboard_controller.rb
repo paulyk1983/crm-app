@@ -3,6 +3,9 @@ require 'mail'
 
 class DashboardController < ApplicationController
   def show
+    @contacts = Contact.all
+    @users = User.all
+    @a
     # Mail.defaults do
     #   delivery_method :smtp, {
     #     :address => 'smtp.gmail.com',

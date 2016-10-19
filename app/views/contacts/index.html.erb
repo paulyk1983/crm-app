@@ -1,0 +1,5 @@
+<h1>Contacts Index Page</h1>
+
+<% @contacts.each do |contact| %>
+  <p><a href="/contacts/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name%> </a></p>
+<% end %>
