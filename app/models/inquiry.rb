@@ -28,15 +28,15 @@ class Inquiry < ActiveRecord::Base
       delivery_method :smtp, {
         :address => 'smtp.gmail.com',
         :port => '587',
-        :user_name => ENV['GMAIL_USER'],
-        :password => ENV['GMAIL_PASSWORD'],
+        :user_name => ENV['EMAIL_USER'],
+        :password => ENV['EMAIL_PASSWORD'],
         :authentication => :plain
       }
     end
 
     Mail.new(
       :to => User.first.email,
-      :from => 'paulyk1983@gmail.com',
+      :from => 'finishlinedev@gmail.com',
       :subject => 'New Quote Request',
       :body => body,
       :content_type => 'text/html; charset=UTF-8'
@@ -110,7 +110,7 @@ class Inquiry < ActiveRecord::Base
 
     Mail.defaults do
       delivery_method :smtp, {
-        :address => 'smtp.zoho.com',
+        :address => 'smtp.gmail.com',
         :port => '587',
         :user_name => ENV['EMAIL_USER'],
         :password => ENV['EMAIL_PASSWORD'],
