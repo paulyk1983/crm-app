@@ -1,3 +1,10 @@
 <h1>Contacts Show Page</h1>
 
 <h3><%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+
+
+<p><%= link_to "Back to Contacts", "/contacts" %></p>
+
+<p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
+
