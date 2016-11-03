@@ -1,10 +1,138 @@
-<h1>Contacts Show Page</h1>
+<div class="container">
+  <h1>Contact Information</h1>
 
-<h3><%= @contact.first_name %> <%= @contact.last_name %></h3>
+  <table class="table table-condensed table-striped">
+    <tr>
+      <td>
+        <p>Name:</p>
+      </td>
+      <td>
+        <p><%= @contact.first_name %> <%= @contact.last_name %></p>
+      </td>    
+    </tr>
+    <tr>
+      <td>
+        <p>Contact id: </p>
+      </td>
+      <td>
+        <p><%= @contact.id %></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>User id: </p>
+      </td>
+      <td>
+        <p><%= @contact.user_id %></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Phone number: </p>
+      </td>
+      <td>
+        <p><%= @contact.phone_number %></p>
+      </td>
+    </tr>    
+    <tr>
+    <tr>
+      <td>
+        <p>Email:</p>
+      </td>
+      <td>
+        <p><%= @contact.email %></p>
+      </td>    
+    <tr>
+      <td>
+        <p>Secondary email:</p>
+      </td>
+      <td>
+        <p><%= @contact.secondary_email %></p>
+      </td>    
+    </tr>    </tr>
 
 
+    <tr>
+      <td>
+        <p>Mailing address:</p>
+      </td>
+      <td>
+        <p><%= @contact.mailing_street %></p>
+        <p><%= @contact.mailing_suite %></p>
+        <p><%= @contact.mailing_city %>, <%= @contact.mailing_state %> <%= @contact.mailing_zip %></p>
+      </td>
+    </tr>
 
-<p><%= link_to "Back to Contacts", "/contacts" %></p>
+    <tr>
+      <td>
+        <p>Shipping address:</p>
+      </td>
+      <td>
+        <p><%= @contact.shipping_street %></p>
+        <p><%= @contact.shipping_suite %></p>
+        <p><%= @contact.shipping_city %>, <%= @contact.shipping_state %> <%= @contact.shipping_zip %></p>
+        <p><%= @contact.country %></p>
+      </td>      
+    </tr>  
+    <tr>
+      <td>
+        <p>Customer notes:</p>
+      </td>
+      <td>
+        <p><%= @contact.customer_notes %></p>
+      </td>      
+    </tr>  
+    <tr>
+      <td>
+        <p>Registered:</p>
+      </td>
+      <td>
+        <p><%= @contact.registered %></p>
+      </td>      
+    </tr>
+    <tr>
+      <td>
+        <p>Subscribed:</p>
+      </td>
+      <td>
+        <p><%= @contact.subscribed %></p>
+      </td>      
+    </tr>  
+    <tr>
+      <td>
+        <p>Rating:</p>
+      </td>
+      <td>
+        <p><%= @contact.rating %></p>
+      </td>      
+    </tr>  
+    <tr>
+      <td>
+        <p>Type:</p>
+      </td>
+      <td>
+        <p><%= @contact.type %></p>
+      </td>      
+    </tr>
+    <tr>
+      <td>
+        <p>Created:</p>
+      </td>
+      <td>
+        <p><%= @contact.created_at.strftime("%d %b. %Y") %></p>
+      </td>      
+    </tr> 
+    <tr>
+      <td>
+        <p>Updated:</p>
+      </td>
+      <td>
+        <p><%= @contact.updated_at %></p>
+      </td>
+    </tr>                                                      
+  </table>
 
-<p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
 
+  <p><%= link_to "Back to Contacts", "/contacts" %></p>
+  <p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
+</div>
