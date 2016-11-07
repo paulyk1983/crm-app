@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/contacts/:id' => 'contacts#show'
   get '/contacts/:id/edit' => 'contacts#edit'
   patch '/contacts/:id' => 'contacts#update'
+  delete '/contacts/:id' => 'contacts#destroy'
 
   namespace :api do
     namespace :v1 do
