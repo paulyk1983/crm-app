@@ -135,4 +135,6 @@
 
   <p><%= link_to "Back to Contacts", "/contacts" %></p>
   <p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
+  <p><%= link_to "Delete this contact", "/contacts/#{@contact.id}", method: :delete %></p>
+
 </div>
