@@ -28,6 +28,7 @@ class Api::V1::InquiriesController < ApplicationController
     inquiry.send_request_confirmation(inquiry)
 
     redirect_to 'https://finishlinecorp.com/test-crm'
+  
   end
 
   private
