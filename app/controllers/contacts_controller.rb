@@ -68,7 +68,7 @@ class ContactsController < ApplicationController
                           )
     if @contact.save
       flash[:success] = 'Contact successfully created!'
-      redirect_to '/contacts'
+      redirect_to '/contacts/#{contact.id}"'
     else
       render 'new.html.erb'
     end

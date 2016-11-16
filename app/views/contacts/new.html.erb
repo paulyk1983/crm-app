@@ -30,13 +30,78 @@
   </div>
 
   <div>
+    <%= label_tag :secondary_email %>
+    <%= text_field_tag :secondary_email, @contact.secondary_email %>
+  </div>  
+
+  <div>
     <%= label_tag :company %>
     <%= text_field_tag :company, @contact.company %>
   </div>
 
   <div>
-    <%= submit_tag "Add contact!" %>
+    <%= label_tag :phone_number %>
+    <%= text_field_tag :phone_number, @contact.phone_number %>
   </div>
+
+  <div>
+    <%= label_tag :mailing_street %>
+    <%= text_field_tag :mailing_street, @contact.mailing_street %>
+  </div>
+
+  <div>
+    <%= label_tag :mailing_suite %>
+    <%= text_field_tag :mailing_suite, @contact.mailing_suite %>
+  </div>
+
+  <div>
+    <%= label_tag :mailing_city %>
+    <%= text_field_tag :mailing_city, @contact.mailing_city %>
+  </div>
+
+  <div>
+    <%= label_tag :mailing_state %>
+    <%= text_field_tag :mailing_state, @contact.mailing_state %>
+  </div>  
+      
+  <div>
+    <%= label_tag :mailing_zip %>
+    <%= text_field_tag :mailing_zip, @contact.mailing_zip %>
+  </div>
+
+  <div>
+    <%= label_tag :shipping_street %>
+    <%= text_field_tag :shipping_street, @contact.shipping_street %>
+  </div>
+
+  <div>
+    <%= label_tag :shipping_suite %>
+    <%= text_field_tag :shipping_suite, @contact.shipping_suite %>
+  </div>
+
+  <div>
+    <%= label_tag :shipping_city %>
+    <%= text_field_tag :shipping_city, @contact.shipping_city %>
+  </div>
+
+  <div>
+    <%= label_tag :shippin_zip %>
+    <%= text_field_tag :shippin_zip, @contact.shipping_zip %>
+  </div>
+
+  <div>
+    <%= label_tag :country %>
+    <%= text_field_tag :country, @contact.country %>
+  </div>
+
+  <div>
+    <%= label_tag :customer_notes %>
+    <%= text_field_tag :customer_notes, @contact.customer_notes %>
+  </div>
+
+  <div>
+    <%= submit_tag "Add contact!" %>
+  </div>  
 
 <% end %>
 

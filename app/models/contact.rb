@@ -5,4 +5,8 @@ class Contact < ActiveRecord::Base
   has_many :samples
   has_many :products
   has_many :inquiries
+
+  validates :first_name, presence: true
+  validates :email, presence: true
+  validates :company, presence: true
 end
