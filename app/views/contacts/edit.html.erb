@@ -7,6 +7,31 @@
     <table class="table table-condensed table-striped">
       <tr>
         <td>
+          <%= label_tag :first_name %>
+        </td>
+        <td>
+          <%= text_field_tag :first_name, @contact.first_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= label_tag :last_name %>
+        </td>
+        <td>
+          <%= text_field_tag :last_name, @contact.last_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= label_tag :company_name %>
+        </td>
+        <td>
+          <%= text_field_tag :company_name, @contact.company_name %> 
+        </td>
+      </tr>
+      <tr>
+        <td>
         <%= label_tag :email %>
         </td>
         <td>
@@ -20,24 +45,6 @@
         </td>
         <td>
           <%= text_field_tag :secondary_email, @contact.secondary_email %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-        <%= label_tag :first_name %>
-        </td>
-        <td>
-          <%= text_field_tag :first_name, @contact.first_name %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-        <%= label_tag :last_name %>
-        </td>
-        <td>
-          <%= text_field_tag :last_name, @contact.last_name %>
         </td>
       </tr>
 
@@ -187,8 +194,6 @@
     </table>
 
 
-
-    
     <div>
       <%= submit_tag "Update contact information" %>
     </div>

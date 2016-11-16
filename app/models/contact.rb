@@ -8,5 +8,5 @@ class Contact < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :email, presence: true
-  validates :company, presence: true
+  validates :company_name, presence: true
 end
