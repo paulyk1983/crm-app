@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/test_form' => 'test_form#show'
 
   get '/contacts' => 'contacts#index'
+  post '/contacts' => 'contacts#create'
+  get '/contacts/new' => 'contacts#new'
   get '/contacts/:id' => 'contacts#show'
   get '/contacts/:id/edit' => 'contacts#edit'
   patch '/contacts/:id' => 'contacts#update'

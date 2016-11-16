@@ -1,0 +1,43 @@
+<h1>Add a new contact</h1>
+
+<% if @contact.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  </div>
+<% end %>
+
+
+<%= form_tag '/contacts', method: :post do %>
+
+  <div>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name, @contact.first_name %>
+  </div>
+
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, @contact.last_name %>
+  </div>
+
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, @contact.email %>
+  </div>
+
+  <div>
+    <%= label_tag :company %>
+    <%= text_field_tag :company, @contact.company %>
+  </div>
+
+  <div>
+    <%= submit_tag "Add contact!" %>
+  </div>
+
+<% end %>
+
+<h2><a href="/contacts">Back to index</a></h2>
