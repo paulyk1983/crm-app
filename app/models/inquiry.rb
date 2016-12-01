@@ -127,4 +127,6 @@ class Inquiry < ActiveRecord::Base
     ).deliver!
 
   end
+
+  
 end

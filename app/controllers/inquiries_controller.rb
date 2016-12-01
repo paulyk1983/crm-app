@@ -43,14 +43,19 @@ class InquiriesController < ApplicationController
       # need logic for when a new contact is made with an existing company, need logic to parse company string
 
       # check for contact
-      existing_contact = Contact.find_by(email: params[:email])
-      if !exisiting_contact
-        # create contact
+      if !existing_contact = Contact.find_by(email: @inquiry.email)
+        Contact.create(
+          first_name: @inquiry.first_name,
+          company_name: @inquiry.company_name,
+          email: @inquiry.email,
+          phone_number: @inquiry.phone_number,
+          mailing_zip: @inquiry.zip_code
+        )
+        @inquiry.update(new_lead: true)
       end
 
       # check for company
     end
-    
     if @inquiry.save!
       flash[:success] = success_message
     else
