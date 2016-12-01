@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
       customer_notes: params[:customer_notes]
     )
       flash[:success] = 'Contact successfully updated!'
-      redirect_to '/contacts/#{@contact.id}'
+      redirect_to "/contacts/#{@contact.id}"
     else
       render 'edit.html.erb'
     end
@@ -70,7 +70,7 @@ class ContactsController < ApplicationController
                           )
     if @contact.save
       flash[:success] = 'Contact successfully created!'
-      redirect_to '/contacts/#{contact.id}"'
+      redirect_to "/contacts/#{@contact.id}"
     else
       render 'new.html.erb'
     end
