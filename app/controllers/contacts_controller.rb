@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
+    @contacts = Contact.paginate(:page => params[:page], :per_page => 5)
     render 'index.html.erb'
   end
 
