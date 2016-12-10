@@ -1,6 +1,24 @@
 class ContactsController < ApplicationController
   def index
     @contacts = Contact.paginate(:page => params[:page], :per_page => 5)
+    sort_attribute = params[:sort]
+
+    @sorting_order = "sort"
+    @sorting_caret = "glyphicon glyphicon-chevron-up"
+    
+    if sort_attribute
+      @contacts = Contact.order(sort_attribute).paginate(:page => params[:page], :per_page => 5)
+      @sorting_order = "descend"
+      @sorting_caret = "glyphicon glyphicon-chevron-down"
+    end
+
+    sort_descending = params[:descend]
+    if sort_descending
+      @contacts = Contact.order(sort_descending => :desc).paginate(:page => params[:page], :per_page => 5)
+      # @sorting_order = "sort"
+      # @sorting_caret = "glyphicon glyphicon-chevron-up"
+    end
+
     render 'index.html.erb'
   end
 
