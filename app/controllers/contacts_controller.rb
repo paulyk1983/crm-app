@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
       @contacts = Contact.order(sort_descending => :desc).paginate(:page => params[:page], :per_page => 5)
       # @sorting_order = "sort"
       # @sorting_caret = "glyphicon glyphicon-chevron-up"
-    end
+    end  
 
     render 'index.html.erb'
   end
