@@ -1,8 +1,9 @@
 
 
 <div class="container" ng-app="app">
-<h1>Contacts Index Page {{1+1}}</h1>
-
+<div ng-controller="contactsCtrl">
+<h1>Contacts Index Page {{test}}</h1>
+</div>
 <p><%= link_to "Add a new contact", "/contacts/new" %></p>
 
 <table class="table table-condensed table-striped">
