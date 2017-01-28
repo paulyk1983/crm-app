@@ -42,11 +42,11 @@ class InquiriesController < ApplicationController
 
       # need logic for when a new contact is made with an existing company, need logic to parse company string
 
-      # check for contact
-      existing_contact = Contact.find_by(email: params[:email])
-      if !exisiting_contact
-        # create contact
-      end
+      # # check for contact
+      # existing_contact = Contact.find_by(email: params[:email])
+      # if !exisiting_contact
+      #   # create contact
+      # end
 
       # check for company
     end

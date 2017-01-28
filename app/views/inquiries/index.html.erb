@@ -20,7 +20,7 @@
 
         <!-- THIS CAN BE MADE INTO A PARTIAL -->
         <a href="/inquiries/<%= inquiry.id %>" class="btn btn-info">View</a>
-        <% if inquiry.status %>        
+        <% if inquiry.status == "accepted" %>        
           <a href="/quotes/new" class="btn btn-success">Send Quotes</a>           
         <% else %>
           <%= form_tag "/inquiries/#{inquiry.id}", method: 'patch', style: "display:inline-block;" do %>
