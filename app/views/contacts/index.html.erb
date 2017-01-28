@@ -7,11 +7,11 @@
 
 <table class="table table-condensed table-striped">
   <tr>
-    <th>Name</th>
-    <th>Company Name</th>
-    <th>Email</th>
+    <th>Name <a href="/contacts?<%= @sorting_order %>=first_name"><span class ="<%= @sorting_caret %>"></span></a></th>
+    <th>Company Name <a href="/contacts?<%= @sorting_order %>=company_name"><span class ="<%= @sorting_caret %>"></span></a></th>
+    <th>Email <a href="/contacts?<%= @sorting_order %>=email"><span class ="<%= @sorting_caret %>"></span></a></th>
     <th>Phone Number</th>
-    <th>Date Created</th>
+    <th>Date Created <a href="/contacts?<%= @sorting_order %>=created_at"><span class ="<%= @sorting_caret %>"></span></a></th></th>
   </tr>
 
         <% @contacts.each do |contact| %>
@@ -35,4 +35,5 @@
         </tr>
         <% end %>
 </table>
+<%= will_paginate @users %>
 </div>
