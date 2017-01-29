@@ -1,40 +1,37 @@
 
 
 <div class="container" ng-app="app">
-<div ng-controller="contactsCtrl">
-<h1>Contacts Index Page {{test}}</h1>
-</div>
-<p><%= link_to "Add a new contact", "/contacts/new" %></p>
+  <div ng-controller="contactsCtrl" ng-init="setup()">
+    <h1>Contacts Index Page</h1>
 
-<table class="table table-condensed table-striped">
-  <tr>
-    <th>Name <a href="/contacts?<%= @sorting_order %>=first_name"><span class ="<%= @sorting_caret %>"></span></a></th>
-    <th>Company Name <a href="/contacts?<%= @sorting_order %>=company_name"><span class ="<%= @sorting_caret %>"></span></a></th>
-    <th>Email <a href="/contacts?<%= @sorting_order %>=email"><span class ="<%= @sorting_caret %>"></span></a></th>
-    <th>Phone Number</th>
-    <th>Date Created <a href="/contacts?<%= @sorting_order %>=created_at"><span class ="<%= @sorting_caret %>"></span></a></th></th>
-  </tr>
+    <p><%= link_to "Add a new contact", "/contacts/new" %></p>
 
-        <% @contacts.each do |contact| %>
-
-        <tr>
-          <td>
-            <p><a href="/contacts/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %> </a></p>
-          </td>
-          <td>
-            <p><%= contact.company_name %></p>
-          </td>
-          <td>
-            <p><%= contact.email %></p>
-          </td>
-          <td>
-            <p><%= contact.phone_number %></p>
-          </td>
-          <td>
-            <p><%= contact.created_at.strftime("%d %b. %Y")%></p>
-          </td>
-        </tr>
-        <% end %>
-</table>
-<%= will_paginate @users %>
+    <table class="table table-condensed table-striped">
+      <tr>
+        <th>Name <a href="/contacts?<%= @sorting_order %>=first_name"><span class ="<%= @sorting_caret %>"></span></a></th>
+        <th>Company Name <a href="/contacts?<%= @sorting_order %>=company_name"><span class ="<%= @sorting_caret %>"></span></a></th>
+        <th>Email <a href="/contacts?<%= @sorting_order %>=email"><span class ="<%= @sorting_caret %>"></span></a></th>
+        <th>Phone Number</th>
+        <th>Date Created <a href="/contacts?<%= @sorting_order %>=created_at"><span class ="<%= @sorting_caret %>"></span></a></th></th>
+      </tr>
+      <tr ng-repeat="contact in contacts | orderBy:first_name:false | limitTo:5">
+        <td>
+          <p><a href="/contacts/{{ contact.id }}">{{ contact.first_name }} {{ contact.last_name }} </a></p>
+        </td>
+        <td>
+          <p>{{ contact.company_name }}</p>
+        </td>
+        <td>
+          <p>{{ contact.email }}</p>
+        </td>
+        <td>
+          <p>{{ contact.phone_number }}</p>
+        </td>
+        <td>
+          <p>{{ contact.created_at.strftime("%d %b. %Y") }}</p>
+        </td>
+      </tr>
+    </table>
+    <%= will_paginate @users %>
+  </div>
 </div>
