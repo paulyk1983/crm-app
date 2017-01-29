@@ -28,7 +28,7 @@
           <p>{{ contact.phone_number }}</p>
         </td>
         <td>
-          <p>{{ contact.created_at.strftime("%d %b. %Y") }}</p>
+          <p>{{ contact.created_at | date:mediumDate }}</p>
         </td>
       </tr>
     </table>
