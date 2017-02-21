@@ -1,55 +1,35 @@
-<h1 style="margin-left:15px;"><u>Inquiries</u></h1>
-<hr>
-<div class="container record-table">
-  <div class="row table-head">
-    <div class="col-md-4">
-      <h2>Info</h2>
-    </div>
-    <div class="col-md-8">
-      <h2>Date Created</h2>
-    </div>
+<div class="container" ng-app="app">
+  <div ng-controller="inquiriesCtrl" ng-init="setup()">
+    <h1>Inquiries</h1>
+
+    <p><%= link_to "Add a new inquiry", "/inquiries/new" %></p>
+
+    <table class="table table-condensed table-striped">
+      <tr>
+        <th><p ng-click="changeOrder('first_name')"><a href="javascript:void(0)">Name</a></p></th>
+        <th>Company Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th><p ng-click="changeOrder('created_at')"><a href="javascript:void(0)">Date Created</a></th>
+      </tr>
+      <tr ng-repeat="inquiry in inquiries | orderBy:attribute:sortOrder | limitTo:5">
+        <td>
+          <p><a href="/inquiries/{{ inquiry.id }}">{{ inquiry.first_name }} {{ inquiry.last_name }} </a></p>
+        </td>
+        <td>
+          <p>{{ inquiry.company_name }}</p>
+        </td>
+        <td>
+          <p>{{ inquiry.email }}</p>
+        </td>
+        <td>
+          <p>{{ inquiry.phone_number }}</p>
+        </td>
+        <td>
+          <p>{{ inquiry.created_at | date:mediumDate }}</p>
+        </td>
+      </tr>
+    </table>
+    
   </div>
-
-  <!-- THIS NEEDS TO BE CONVERTED TO ANGULAR,,, SOON, SO DON'T SPEND TOO MUCH TIME ON THIS -->
-  <% @inquiries.each do |inquiry| %>
-    <div class="row table-row">
-      <div class="col-md-4">
-        <h3>Name: <%= inquiry.first_name %> <%= inquiry.last_name %></h3>
-        <h4>Email: <%= inquiry.email %></h4>
-        <h4>Product: <%= inquiry.product %></h4>
-
-        <!-- THIS CAN BE MADE INTO A PARTIAL -->
-        <a href="/inquiries/<%= inquiry.id %>" class="btn btn-info">View</a>
-        <% if inquiry.status == "accepted" %>
-          <a href="/quotes/new" class="btn btn-success">Send Quotes</a>
-        <% else %>
-          <%= form_tag "/inquiries/#{inquiry.id}", method: 'patch', style: "display:inline-block;" do %>
-              <%= hidden_field_tag "status", "rejected" %>
-              <%= submit_tag "Reject", class: "btn btn-danger" %>
-          <% end %>
-          <%= form_tag "/inquiries/#{inquiry.id}", method: 'patch', style: "display:inline-block;" do %>
-              <%= hidden_field_tag "status", "accepted" %>
-              <%= submit_tag "Approve", class: "btn btn-success" %>
-          <% end %>
-        <%  end %>
-      </div>
-      <div class="col-md-8">
-        <h3><%= inquiry.created_at.strftime('%m/%d/%Y') %></h3>
-      </div>
-    </div>
-  <% end %>
-
-<style>
-.table-row {  
-  border: 1px solid black;
-}
-
-.table-row div {
-  padding: 25px;
-  border-right: 1px solid black;
-}
-.table-head div {
-  background-color:lightgray;
-  border: 1px solid black;
-}
-</style>
+</div>
