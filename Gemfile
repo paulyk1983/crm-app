@@ -37,6 +37,9 @@ gem 'dotenv-rails', :groups => [:development, :test], :require => 'dotenv/rails-
 # email
 gem 'mail'
 
+# for sending secure emails
+gem 'sendgrid-ruby'
+
 gem 'will_paginate'
 
 # Use ActiveModel has_secure_password

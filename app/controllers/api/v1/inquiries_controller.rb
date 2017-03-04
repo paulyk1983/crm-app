@@ -11,6 +11,7 @@ class Api::V1::InquiriesController < ApplicationController
   def create  
     # ADD INQUIRY TO DATABASE
     inquiry = Inquiry.new(inquiry_params)
+    inquiry.update_attribute('user_id', current_user.id)
 
     # CHECK EMAIL TO SEE IF NEW LEAD
     repeat_inquiry = Inquiry.find_by(email: inquiry.email)
@@ -27,7 +28,8 @@ class Api::V1::InquiriesController < ApplicationController
     inquiry.send_request_alert(inquiry, current_url)
     inquiry.send_request_confirmation(inquiry)
 
-    redirect_to 'https://finishlinecorp.com/test-crm'
+    flash[:success] = "Your inquiry has been submitted. You will receive a confirmation email shortly"
+    redirect_to '/test_form'
   
   end
 

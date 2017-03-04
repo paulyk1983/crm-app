@@ -12,7 +12,7 @@
         <th>Phone Number</th>
         <th><p ng-click="changeOrder('created_at')"><a href="javascript:void(0)">Date Created</a></th>
       </tr>
-      <tr ng-repeat="inquiry in inquiries | orderBy:attribute:sortOrder | limitTo:5">
+      <tr ng-repeat="inquiry in inquiries | orderBy:attribute:sortOrder | limitTo:25">
         <td>
           <p><a href="/inquiries/{{ inquiry.id }}">{{ inquiry.first_name }} {{ inquiry.last_name }} </a></p>
         </td>

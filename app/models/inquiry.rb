@@ -5,7 +5,14 @@ class Inquiry < ActiveRecord::Base
   has_many :quotes
   has_many :samples
 
+  require 'sendgrid-ruby'
+  include SendGrid
+
   def send_request_alert(inquiry, current_url)
+
+    from = Email.new(email: 'info@finishlinecorp.com')
+    to = Email.new(email: "#{inquiry.email}")
+    subject = 'New Quote Request'
 
     File.open('app/templates/request_alert.html.erb', 'w') { |file| file.write(
       "<p>#{inquiry.first_name} from #{inquiry.company} has submitted a quote request.</p>
@@ -22,25 +29,31 @@ class Inquiry < ActiveRecord::Base
       <p><a href='#{current_url}/inquiries/#{inquiry.id}?status=reject'>Reject Request</a></p>   "
       ) }
 
-    body = File.read('app/templates/request_alert.html.erb')
+    message = File.read('app/templates/request_alert.html.erb')
 
-    Mail.defaults do
-      delivery_method :smtp, {
-        :address => 'smtp.gmail.com',
-        :port => '587',
-        :user_name => ENV['EMAIL_USER'],
-        :password => ENV['EMAIL_PASSWORD'],
-        :authentication => :plain
-      }
-    end
+    content = Content.new(type: 'text/html', value: message)
+    mail = Mail.new(from, subject, to, content)
 
-    Mail.new(
-      :to => User.first.email,
-      :from => 'finishlinedev@gmail.com',
-      :subject => 'New Quote Request',
-      :body => body,
-      :content_type => 'text/html; charset=UTF-8'
-    ).deliver!
+    sg = SendGrid::API.new(api_key: ENV["SENDGRID_API_KEY"])
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+
+    # Mail.defaults do
+    #   delivery_method :smtp, {
+    #     :address => 'smtp.gmail.com',
+    #     :port => '587',
+    #     :user_name => ENV['EMAIL_USER'],
+    #     :password => ENV['EMAIL_PASSWORD'],
+    #     :authentication => :plain
+    #   }
+    # end
+
+    # Mail.new(
+    #   :to => User.first.email,
+    #   :from => 'finishlinedev@gmail.com',
+    #   :subject => 'New Quote Request',
+    #   :body => body,
+    #   :content_type => 'text/html; charset=UTF-8'
+    # ).deliver!
   end
 
   def send_request_confirmation(inquiry)
@@ -106,25 +119,34 @@ class Inquiry < ActiveRecord::Base
       #{social_media}"
       ) }
 
-    body = File.read('app/templates/request_confirmation.html.erb')
+    message = File.read('app/templates/request_confirmation.html.erb')
+    from = Email.new(email: 'info@finishlinecorp.com')
+    to = Email.new(email: "#{inquiry.email}")
+    subject = 'Quote Request Confirmation'
 
-    Mail.defaults do
-      delivery_method :smtp, {
-        :address => 'smtp.gmail.com',
-        :port => '587',
-        :user_name => ENV['EMAIL_USER'],
-        :password => ENV['EMAIL_PASSWORD'],
-        :authentication => :plain
-      }
-    end
+    content = Content.new(type: 'text/html', value: message)
+    mail = Mail.new(from, subject, to, content)
 
-    Mail.new(
-      :to => inquiry.email,
-      :from => 'sales@finishlinecorp.com',
-      :subject => 'Quote Request Confirmation',
-      :body => body,
-      :content_type => 'text/html; charset=UTF-8'
-    ).deliver!
+    sg = SendGrid::API.new(api_key: ENV["SENDGRID_API_KEY"])
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+
+    # Mail.defaults do
+    #   delivery_method :smtp, {
+    #     :address => 'smtp.gmail.com',
+    #     :port => '587',
+    #     :user_name => ENV['EMAIL_USER'],
+    #     :password => ENV['EMAIL_PASSWORD'],
+    #     :authentication => :plain
+    #   }
+    # end
+
+    # Mail.new(
+    #   :to => inquiry.email,
+    #   :from => 'sales@finishlinecorp.com',
+    #   :subject => 'Quote Request Confirmation',
+    #   :body => body,
+    #   :content_type => 'text/html; charset=UTF-8'
+    # ).deliver!
 
   end
 
