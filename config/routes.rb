@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#show'
+  post '/home' => 'home#testpost'
 end

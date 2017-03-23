@@ -1,1 +1,9 @@
 <h1>Home page</h1>
+<h2>Testing api requests to Lemonstand.com</h2>
+<%= form_tag '/home', method: :post do %>
+  <div>
+    <%= submit_tag "Add Product" %>
+  </div>  
+<% end %>
+
+<%= @test %>

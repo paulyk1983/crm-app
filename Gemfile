@@ -42,6 +42,9 @@ gem 'sendgrid-ruby'
 
 gem 'will_paginate'
 
+# api requests
+gem 'unirest', '~> 1.1.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
