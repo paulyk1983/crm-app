@@ -1,8 +1,8 @@
 <h1>Home page</h1>
 <h2>Testing api requests to Lemonstand.com</h2>
 <%= form_tag '/home', method: :post do %>
-  <div>
-    <%= submit_tag "Add Product" %>
+  <div style="margin-top:20px; margin-bottom:20px;">
+    <%= submit_tag "Add Product (button disabled)", "disabled" => "disabled", "class" => "btn btn-large btn-info", "style" => "color:black;" %>
   </div>  
 <% end %>
 
