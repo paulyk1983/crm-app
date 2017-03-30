@@ -9,7 +9,7 @@
         <th><p ng-click="changeOrder('first_name')"><a href="javascript:void(0)">Name</a></p></th>
         <th>Company Name</th>
         <th>Email</th>
-        <th>Phone Number</th>
+        <th>Status</th>
         <th><p ng-click="changeOrder('created_at')"><a href="javascript:void(0)">Date Created</a></th>
       </tr>
       <tr ng-repeat="inquiry in inquiries | orderBy:attribute:sortOrder | limitTo:25">
@@ -23,7 +23,7 @@
           <p>{{ inquiry.email }}</p>
         </td>
         <td>
-          <p>{{ inquiry.phone_number }}</p>
+          <p>{{ inquiry.status }}</p>
         </td>
         <td>
           <p>{{ inquiry.created_at | date:mediumDate }}</p>
