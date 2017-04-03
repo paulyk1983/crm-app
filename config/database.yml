@@ -60,7 +60,7 @@ test:
   encoding: utf8
   database: crm_app_test
   pool: 5
-  username: paulkrajewski
+  username: joymccaffrey
   password:
 
 # As with config/secrets.yml, you never want to store sensitive information,

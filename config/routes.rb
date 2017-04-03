@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   
   get '/dashboard' => 'dashboard#show'
 
@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   get '/contacts/:id/edit' => 'contacts#edit'
   patch '/contacts/:id' => 'contacts#update'
   delete '/contacts/:id' => 'contacts#destroy'
+
+   get '/quotes' => 'quotes#index'
+   post '/quotes' => 'quotes#create'
+   get '/quotes/new' => 'quotes#new'
+   get '/quotes/:id' => 'quotes#show'
+   get '/quotes/:id/edit' => 'quotes#edit'
+   patch '/quotes/:id' => 'quotes#update' 
 
   namespace :api do
     namespace :v1 do
