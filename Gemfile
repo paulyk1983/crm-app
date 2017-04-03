@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # user authorization
-gem 'devise'
+gem 'devise', '~> 4.0'
 
 # for env
 gem 'dotenv-rails', :groups => [:development, :test], :require => 'dotenv/rails-now'
