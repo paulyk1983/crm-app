@@ -1,1 +1,64 @@
-new.html.erb
+<h1>New Quote Page</h1>
+
+<%= form_tag '/quotes', method: :post do %>
+
+  <div>
+    <%= label_tag :order_type %>
+    <%= select_tag "order_type", options_for_select([ "Stock Item", "Wholesale - drop shop", "Wholesale - add inventory", "In-house work hand", "In-house work machine" ], :prompt=>"Please Select") %>
+  </div>
+  
+  <div>
+    <%= label_tag :product %>
+    <%= text_field_tag :product %>
+  </div>
+
+  <div>
+    <%= label_tag :unit_price %>
+    <%= text_field_tag :unit_price %>
+  </div>
+
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity %>
+  </div> 
+
+  <div>
+    <%= label_tag :lead_time %>
+    <%= text_field_tag :lead_time %>
+  </div> 
+
+  <div>
+    <%= label_tag :quantity_discount %>
+    <%= text_field_tag :quantity_discount %>
+  </div> 
+
+  <div>
+    <%= label_tag :ship_from %>
+    <%= text_field_tag :ship_from %>
+  </div>
+
+  <div>
+    <%= label_tag :ship_method %>
+    <%= text_field_tag :ship_method %>
+  </div>
+
+  <div>
+    <%= label_tag :country_of_origin %>
+    <%= text_field_tag :country_of_origin %>
+  </div>
+
+  <div>
+    <%= label_tag :note_for_lead %>
+    <%= text_field_tag :note_for_lead %>
+  </div>
+
+  <div>
+    <%= label_tag :note_for_sales %>
+    <%= text_field_tag :note_for_sales %>
+  </div>
+
+  <div>
+    <%= submit_tag "Add Quote!" %>
+  </div>  
+
+<% end %>
