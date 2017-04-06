@@ -13,6 +13,7 @@ class QuotesController < ApplicationController
   end
 
   def show
+    @quote = Quote.find_by(id: params[:id])
   end
   
   def create
