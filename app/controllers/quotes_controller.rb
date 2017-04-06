@@ -4,6 +4,7 @@ class QuotesController < ApplicationController
   end
 
   def new
+    @products = Product.where(user_id: current_user.id)
   end
 
   def edit
