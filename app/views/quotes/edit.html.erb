@@ -1,1 +1,53 @@
-edit.html.erb
+<div style="padding:25px;">
+  <h1>Edit Quote</h1>
+  <%= form_tag "/quotes/#{@quote.id}", method: :patch do %>
+    <div>
+      <%= label_tag :order_type %>
+      <%= select_tag "order_type", options_for_select([ "Stock Item", "Wholesale - drop shop", "Wholesale - add inventory", "In-house work hand", "In-house work machine" ], @quote.order_type) %>
+    </div> 
+    <div>
+      <%= label_tag :product_id %>
+      <%= text_field_tag :product_id, @quote.product_id %>
+    </div>
+    <div>
+      <%= label_tag :unit_price %>
+      <%= text_field_tag :unit_price, @quote.unit_price %>
+    </div>
+    <div>
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity, @quote.quantity %>
+    </div>
+
+    <div>
+      <%= label_tag :lead_time %>
+      <%= text_field_tag :lead_time, @quote.lead_time %>
+    </div>
+    <div>
+      <%= label_tag :quantity_discount %>
+      <%= text_field_tag :quantity_discount, @quote.quantity_discount %>
+    </div>
+    <div>
+      <%= label_tag :ship_from %>
+      <%= text_field_tag :ship_from, @quote.ship_from %>
+    </div>
+    <div>
+      <%= label_tag :ship_method %>
+      <%= text_field_tag :ship_method, @quote.ship_method %>
+    </div>
+    <div>
+      <%= label_tag :country_of_origin %>
+      <%= text_field_tag :country_of_origin, @quote.country_of_origin %>
+    </div>
+    <div>
+      <%= label_tag :note_for_lead %>
+      <%= text_field_tag :note_for_lead, @quote.note_for_lead %>
+    </div>
+    <div>
+      <%= label_tag :note_for_sales %>
+      <%= text_field_tag :note_for_sales, @quote.note_for_sales %>
+    </div>
+    <div>
+      <%= submit_tag "Edit Quote!" %>
+    </div>
+  <% end %>
+</div>

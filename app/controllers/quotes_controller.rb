@@ -8,9 +8,13 @@ class QuotesController < ApplicationController
   end
 
   def edit
+    @quote = Quote.find_by(id: params[:id])
   end
 
   def update
+    @quote = Quote.find_by(id: params[:id])
+
+    redirect_to "/quotes/#{@quote.id}"
   end
 
   def show
