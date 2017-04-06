@@ -18,7 +18,7 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(
                       order_type: params[:order_type],
-                      product: params[:product],
+                      product_id: params[:product_id],
                       unit_price: params[:unit_price],
                       quantity: params[:quantity],
                       lead_time: params[:lead_time],
@@ -30,10 +30,10 @@ class QuotesController < ApplicationController
                       note_for_sales: params[:note_for_sales]
                       )
     if @quote.save!
-      flash[:success] = success_message
+      flash[:success] = "Your quote has been created."
     else
       flash[:error] = "Something went wrong. Quote was not updated"    
     end
-    redirect_to "/quotes"
+    redirect_to "/quotes/#{@quote.id}"
   end
 end
