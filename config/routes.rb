@@ -28,6 +28,14 @@ Rails.application.routes.draw do
    get '/quotes/:id/edit' => 'quotes#edit'
    patch '/quotes/:id' => 'quotes#update' 
 
+   get '/products' => 'products#index'
+   post '/products' => 'products#create'
+   get '/products/new' => 'products#new'
+   get '/products/:id' => 'products#show'
+   get 'products/:id/edit' => 'products#edit'
+   patch 'products/:id' => 'products#update'
+   delete 'products/:id' => 'products#destroy'
+
   namespace :api do
     namespace :v1 do
       get '/contacts' => 'contacts#index'
