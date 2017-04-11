@@ -1,1 +1,44 @@
 <h1> All Products </h1>
+
+<%= link_to("Create A New Product", "/products/new", :class => "btn btn-primary") %>
+
+<table class="table table-hover results">
+  <thead>
+    <tr>
+      <th> Short Description </th>
+      <th> Description </th>
+      <th> Category </th>
+      <th> Vendor </th>
+      <th> Cost </th>
+      <th> Unit Price </th>
+      <th> Qty In Stock </th>
+    </tr>
+  </thead>
+<% @products.each do |product| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to(product.short_description.titleize, "/product/#{product.id}", :class => "btn btn-primary") %>
+      </td>
+      <td>
+        <%= product.description %>
+      </td>
+      <td>
+        <%= product.category %>
+      </td>
+      <td>
+        <%= product.vendor %>
+      </td>
+      <td>
+        <%= product.cost %>
+      </td>
+      <td>
+        <%= product.unit_price %>
+      </td>
+      <td>
+        <%= product.qty_in_stock %>
+      </td>
+    </tr>
+  </tbody>
+<% end %>
+</table>

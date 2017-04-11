@@ -24,15 +24,8 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		@product = Product.find_by(params[:id])
+		@product = Product.find_by(id: params[:id])
 
-		if @product.save
-		  flash[:success] = "You've Added A Product"
-		  render :index
-		else
-		  flash.now[:danger] = "Something Went Wrong. Please Try Again"
-		  render :new
-		end
 	end
 
 	def destroy

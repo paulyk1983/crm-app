@@ -1,1 +1,40 @@
-<h1> @product.short_description </h1>
+<h1> Product Detail </h1>
+
+<table>
+  <tr>
+    <td>
+      <h4><b> Short Description: </b> <%= @product.short_description.titleize %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Description: </b> <%= @product.description %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Category: </b> <%= @product.category %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Vendor: </b> <%= @product.vendor %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Cost:</b> <%= @product.cost %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Unit Price: </b> <%= @product.unit_price %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Qty In Stock: </b><%= @product.qty_in_stock %></h4>
+    </td>
+  </tr>
+</table>
+<%= link_to "Back to index", "/products", :class => "btn btn-primary" %>
