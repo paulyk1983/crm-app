@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
 	def index
 		@products = Product.all
 	end
@@ -29,7 +30,6 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find_by(id: params[:id])
-
 	end
 
 	def destroy
@@ -43,7 +43,6 @@ class ProductsController < ApplicationController
 		  render :show
 		end
 	end
-
 
 	private
 	  # Using a private method to encapsulate the permissible parameters is
