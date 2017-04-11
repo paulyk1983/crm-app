@@ -1,6 +1,11 @@
 <h2><%= @product.short_description %> has been created:</h2>
 
 <table>
+<tr>
+  <td>
+    <h5><b> SKU: </b> <%= @product.sku %> </h5>
+  </td>
+</tr>
   <tr>
     <td>
       <h5><b> Short Description: </b> <%= @product.short_description.titleize %> </h5>

@@ -1,12 +1,15 @@
-<h2>Name Your Team and add 9 players</h2>
+<h2>Add A New Product</h2>
 <div class="container-fluid">
 	<%= form_for @product, url: {action: "create"} do |f| %>
 
 		<div class="field">
-		  <%= f.label :short_description %><br />
-		  <%= f.text_field :short_description, autofocus: true %>
+		  <%= f.label :sku %><br />
+		  <%= f.text_field :sku, autofocus: true %>
 		</div>
-
+		<div>
+		  <%= f.label :short_description %><br />
+		  <%= f.text_field :short_description %>
+		</div>
 		<div>
 		  <%= f.label :description %><br />
 		  <%= f.text_area :description %>

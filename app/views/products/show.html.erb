@@ -1,6 +1,13 @@
 <h1> Product Detail </h1>
 
+<%= link_to "Edit This Product", "/product/#{@product.id}/edit", :class => "btn btn-primary" %>
+
 <table>
+  <tr>
+    <td>
+      <h4><b> SKU: </b> <%= @product.sku %> </h4>
+    </td>
+  </tr>
   <tr>
     <td>
       <h4><b> Short Description: </b> <%= @product.short_description.titleize %> </h4>

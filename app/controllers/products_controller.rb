@@ -7,12 +7,16 @@ class ProductsController < ApplicationController
 		@product = Product.new
 	end
 
+	def edit
+		@product = Product.find_by(id: params[:id])
+	end
+
 	def create
 		@product = Product.create(product_params.merge(user_id: current_user.id))
 	end
 
 	def update
-		@product = Product.update(product_params.merge(user_id: current_user.id))
+		@product = Product.update(product_params)
 
 		if @product.update
 		  flash[:success] = "You've Updated A Product"

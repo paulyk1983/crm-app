@@ -5,6 +5,7 @@
 <table class="table table-hover results">
   <thead>
     <tr>
+      <th> SKU </th>
       <th> Short Description </th>
       <th> Description </th>
       <th> Category </th>
@@ -18,7 +19,10 @@
   <tbody>
     <tr>
       <td>
-        <%= link_to(product.short_description.titleize, "/product/#{product.id}", :class => "btn btn-primary") %>
+        <%= link_to(product.sku, "/product/#{product.id}", :class => "btn btn-primary") %>
+      </td>
+      <td>
+        <%= product.short_description %>
       </td>
       <td>
         <%= product.description %>
