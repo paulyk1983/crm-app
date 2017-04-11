@@ -1,1 +1,43 @@
 <h1> Edit A Product </h1>
+
+<h2>Add A New Product</h2>
+<div class="container-fluid">
+	<%= form_for @product, url: {action: "patch"} do |f| %>
+
+		<div class="field">
+		  <%= f.label :sku %><br />
+		  <%= f.text_field :sku, @product.sku %>
+		</div>
+		<div>
+		  <%= f.label :short_description %><br />
+		  <%= f.text_field :short_description, @product.short_description %>
+		</div>
+		<div>
+		  <%= f.label :description %><br />
+		  <%= f.text_area :description, @product.description%>
+		</div>
+		<div>
+		  <%= f.label :category %><br />
+		  <%= f.text_field :category, @product.category %>
+		</div>
+		<div>
+		  <%= f.label :vendor %><br />
+		  <%= f.text_field :vendor, @product.vendor %>
+		</div>
+		<div>
+		  <%= f.label :cost %><br />
+		  <%= f.number_field :cost, @product.cost, step: :any %>
+		</div>
+		<div>
+	  	<%= f.label :unit_price %><br />
+		  <%= f.number_field :unit_price, @product.unit_price, step: :any %>
+		</div>
+		<div>
+			<%= f.label :qty_in_stock %><br />
+			<%= f.number_field :qty_in_stock, @product.qty_in_stock, step: :any%>
+		</div>
+		<div class="actions">
+		  <%= f.submit "Save Product", :class => 'btn btn-large btn-primary'  %>
+		</div>
+	<% end %>
+</div>
