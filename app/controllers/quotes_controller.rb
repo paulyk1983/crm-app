@@ -9,10 +9,12 @@ class QuotesController < ApplicationController
 
   def edit
     @quote = Quote.find_by(id: params[:id])
+    @products = Product.where(user_id: current_user.id)
   end
 
   def update
     @quote = Quote.find_by(id: params[:id])
+    @quote.update(quote_params)
 
     redirect_to "/quotes/#{@quote.id}"
   end
@@ -42,4 +44,10 @@ class QuotesController < ApplicationController
     end
     redirect_to "/quotes/#{@quote.id}"
   end
+
+  private
+
+    def quote_params
+      params.permit(:order_type, :product_id, :unit_price, :quantity, :lead_time, :quantity_discount, :ship_from, :ship_method, :country_of_origin, :note_for_lead, :note_for_sales)
+    end
 end
