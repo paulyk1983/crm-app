@@ -1,1 +1,34 @@
-index.html.erb
+i<div class="container" ng-app="app">
+  <div ng-controller="quotesCtrl" ng-init="setup()">
+    <h1>Quotes</h1>
+
+    <p><%= link_to "Create a new quote", "/quotes/new" %></p>
+
+    <table class="table table-condensed table-striped">
+      <tr>
+        <th>SKU</th>
+        <th>Contact Name</th>
+        <th>Company Name</th>
+        <th><p ng-click="changeOrder('created_at')"><a href="javascript:void(0)">Date Created</a></th>
+      </tr>
+      <tr ng-repeat="quote in quotes | orderBy:attribute:sortOrder | limitTo:25">
+        <td>
+          <p><a href="/inquiries/{{ inquiry.id }}">{{ inquiry.first_name }} {{ inquiry.last_name }} </a></p>
+        </td>
+        <td>
+          <p>{{ inquiry.company_name }}</p>
+        </td>
+        <td>
+          <p>{{ inquiry.email }}</p>
+        </td>
+        <td>
+          <p>{{ inquiry.status }}</p>
+        </td>
+        <td>
+          <p>{{ inquiry.created_at | date:mediumDate }}</p>
+        </td>
+      </tr>
+    </table>
+    
+  </div>
+</div>
