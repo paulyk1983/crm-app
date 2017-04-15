@@ -47,6 +47,10 @@ Rails.application.routes.draw do
       post '/inquiries' => 'inquiries#create'
 
       post '/emails' => 'emails#create'
+
+      get '/products' => 'products#index'
+      get '/products/new' => 'products#new'
+      post '/products' => 'products#create'
     end
   end
 
