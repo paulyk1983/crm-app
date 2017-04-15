@@ -1,3 +1,56 @@
+<div class="container" ng-app="app">
+  <div ng-controller="productsCtrl" ng-init="setup()">
+    <h1>Products</h1>
+
+    <p><%= link_to "Add a new product", "/products/new" %></p>
+
+    <table class="table table-condensed table-striped">
+      <tr>
+        <th><p ng-click="changeOrder('short_description')"><a href="javascript:void(0)">Short Description</a></p></th>
+        <th>SKU</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Vendor</th>
+        <th>Cost</th>
+        <th>Unit Price</th>
+        <th>Qty In Stock</th>
+        <th></th>
+        <th><p ng-click="changeOrder('created_at')"><a href="javascript:void(0)">Date Created</a></th>
+      </tr>
+      <tr ng-repeat="product in products | orderBy:attribute:sortOrder | limitTo:25">
+        <td>
+          <p><a href="/products/{{ product.id }}">{{ product.short_description }} </a></p>
+        </td>
+        <td>
+          <p>{{ product.sku }}</p>
+        </td>
+        <td>
+          <p>{{ product.description }}</p>
+        </td>
+        <td>
+          <p>{{ product.category }}</p>
+        </td>
+        <td>
+          <p>{{ product.vendor }}</p>
+        </td>
+        <td>
+          <p>{{ product.cost }}</p>
+        </td>
+        <td>
+          <p>{{ product.unit_price }}</p>
+        </td>
+        <td>
+          <p>{{ product.qty_in_stock }}</p>
+        </td>
+        <td>
+          <p>{{ product.created_at | date:mediumDate }}</p>
+        </td>
+      </tr>
+    </table>
+    
+  </div>
+</div>
+
 <h1> All Products </h1>
 
 <%= link_to("Create A New Product", "/products/new", :class => "btn btn-primary") %>
@@ -19,10 +72,10 @@
   <tbody>
     <tr>
       <td>
-        <%= link_to(product.sku, "/product/#{product.id}", :class => "btn btn-primary") %>
+        <%= product.sku %>
       </td>
       <td>
-        <%= product.short_description %>
+        <%= link_to(product.short_description, "/products/#{product.id}", :class => "btn btn-primary") %>
       </td>
       <td>
         <%= product.description %>
