@@ -1,6 +1,6 @@
 <h1> Product Detail </h1>
 
-<%= link_to "Edit This Product", "/products/#{@product.id}/edit", :class => "btn btn-primary" %>
+<a href="/products/<%= @product.id %>/edit" class="btn btn-warning">Edit</a>
 
 <table>
   <tr>

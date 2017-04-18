@@ -6,8 +6,8 @@
 
     <table class="table table-condensed table-striped">
       <tr>
-        <th><p ng-click="changeOrder('short_description')"><a href="javascript:void(0)">Short Description</a></p></th>
-        <th>SKU</th>
+        <th><p ng-click="changeOrder('short_description')"><a href="javascript:void(0)">SKU</a></p></th>
+        <th>Short Description</th>
         <th>Description</th>
         <th>Category</th>
         <th>Vendor</th>
@@ -19,10 +19,10 @@
       </tr>
       <tr ng-repeat="product in products | orderBy:attribute:sortOrder | limitTo:25">
         <td>
-          <p><a href="/products/{{ product.id }}">{{ product.short_description }} </a></p>
+          <p><a ng-href="/products/{{ product.id }}"> {{ product.sku }}</a></p>
         </td>
         <td>
-          <p>{{ product.sku }}</p>
+          <p>{{ product.short_description }} </p>
         </td>
         <td>
           <p>{{ product.description }}</p>

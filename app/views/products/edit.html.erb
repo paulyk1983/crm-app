@@ -1,41 +1,48 @@
-<h1> Edit A Product </h1>
-<div class="container-fluid">
-	<%= form_for @product, url: {action: "patch"} do |f| %>
-
-		<div class="field">
-		  <%= f.label :sku %><br />
-		  <%= f.text_field :sku, @product.sku %>
-		</div>
-		<div>
-		  <%= f.label :short_description %><br />
-		  <%= f.text_field :short_description, @product.short_description %>
-		</div>
-		<div>
-		  <%= f.label :description %><br />
-		  <%= f.text_area :description, @product.description%>
-		</div>
-		<div>
-		  <%= f.label :category %><br />
-		  <%= f.text_field :category, @product.category %>
-		</div>
-		<div>
-		  <%= f.label :vendor %><br />
-		  <%= f.text_field :vendor, @product.vendor %>
-		</div>
-		<div>
-		  <%= f.label :cost %><br />
-		  <%= f.number_field :cost, @product.cost, step: :any %>
-		</div>
-		<div>
-	  	<%= f.label :unit_price %><br />
-		  <%= f.number_field :unit_price, @product.unit_price, step: :any %>
-		</div>
-		<div>
-			<%= f.label :qty_in_stock %><br />
-			<%= f.number_field :qty_in_stock, @product.qty_in_stock, step: :any%>
-		</div>
-		<div class="actions">
-		  <%= f.submit "Save Product", :class => 'btn btn-large btn-primary'  %>
-		</div>
-	<% end %>
+<div style="padding:25px;">
+  <h1>Edit Product</h1>
+  <%= form_tag "/products/#{@product.id}", method: :patch do %>
+  	<div>
+  		<%= hidden_field_tag :user_id, @product.user_id %>
+  	</div>
+    <div>
+      <%= label_tag :sku %>
+      <%= text_field_tag :sku, @product.sku %>
+    </div> 
+    <div>
+      <%= label_tag :short_description %>
+      <%= text_field_tag :short_description, @product.short_description %>
+    </div>
+    <div>
+      <%= label_tag :description %>
+      <%= text_field_tag :description, @product.description %>
+    </div>
+    <div>
+      <%= label_tag :category %>
+      <%= text_field_tag :category, @product.category %>
+    </div> 
+    <div>
+      <%= label_tag :vendor %>
+      <%= text_field_tag :vendor, @product.vendor %>
+    </div>
+    <div>
+      <%= label_tag :cost %>
+      <%= text_field_tag :cost, @product.cost %>
+    </div>   
+    <div>
+      <%= label_tag :unit_price %>
+      <%= text_field_tag :unit_price, @product.unit_price %>
+    </div> 
+    <div>
+      <%= label_tag :qty_in_stock %>
+      <%= text_field_tag :qty_in_stock, @product.qty_in_stock %>
+    </div>
+    
+    <div>
+      <%= submit_tag "Submit" %>
+    </div>
+  <% end %>
 </div>
+
+
+
+
