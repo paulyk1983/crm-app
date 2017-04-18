@@ -17,15 +17,17 @@ class ProductsController < ApplicationController
 	end
 
 	def update
-		@product = Product.update(product_params)
+		@product = Product.find_by(id: params[:id])
+		@product.update(product_params)
 
-		if @product.update
-		  flash[:success] = "You've Updated A Product"
-		  render :index
+		if @product.save
+		  flash[:success] = "You've Updated #{@product.sku}"
+		  render :show
 		else
 		  flash.now[:danger] = "Something Went Wrong. Please Try Again"
-		  render :show
+		  render :edit
 		end
+
 	end
 
 	def show
@@ -50,8 +52,8 @@ class ProductsController < ApplicationController
 	  # list between create and update. Also, you can specialize this method
 	  # with per-user checking of permissible attributes.
 	  def product_params
-	    params.require(:product).permit(
-	      :user_id, 
+	    params.permit(
+	      :user_id,
 	    	:sku, 
 	    	:unit_price, 
 	    	:cost, 
