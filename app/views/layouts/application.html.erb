@@ -31,7 +31,8 @@
             <li><a href="/products">Products</a></li>
             <li><a href="/messages/new">Send Messages</a></li>
             <li><a target="_blank" href="/test_form">Test Inquiry Form</a></li>
-            <li><a href="/contacts">Contacts</a></li>
+
+          
           <% end %> 
             
 
@@ -55,6 +56,8 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>-->
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="/messages/new">Send Messages</a></li>
+          <li><a target="_blank" href="/test_form">Test Inquiry Form</a></li>
           <% if current_user %>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <% else %>
@@ -86,5 +89,3 @@
 
 </body>
 </html>
-
-

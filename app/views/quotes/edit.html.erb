@@ -7,7 +7,7 @@
     </div> 
     <div>
       <%= label_tag :product_id %>
-      <%= text_field_tag :product_id, @quote.product_id %>
+      <%= select_tag "product_id", options_from_collection_for_select(@products, "id", "sku", @quote.product_id) %>
     </div>
     <div>
       <%= label_tag :unit_price %>
