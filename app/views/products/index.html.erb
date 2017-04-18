@@ -19,6 +19,7 @@
       </tr>
       <tr ng-repeat="product in products | orderBy:attribute:sortOrder | limitTo:25">
         <td>
+
           <p><a ng-href="/products/{{ product.id }}"> {{ product.sku }}</a></p>
         </td>
         <td>

@@ -5,7 +5,7 @@
     $scope.setup = function() {
       $http.get('/api/v1/products.json').then(function(response) {
         $scope.products = response.data;
-        $scope.attribute = "short_description";
+        $scope.attribute = "sku";
         $scope.sortOrder = false;
       });
     };
