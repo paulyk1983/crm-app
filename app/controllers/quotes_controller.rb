@@ -5,6 +5,7 @@ class QuotesController < ApplicationController
 
   def new
     @products = Product.where(user_id: current_user.id)
+    @contacts = Contact.where(user_id: current_user.id)
   end
 
   def edit
