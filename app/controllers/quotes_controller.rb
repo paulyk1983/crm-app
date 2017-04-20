@@ -35,8 +35,10 @@ class QuotesController < ApplicationController
                       ship_method: params[:ship_method],
                       country_of_origin: params[:country_of_origin],
                       note_for_lead: params[:note_for_lead],
-                      note_for_sales: params[:note_for_sales]
+                      note_for_sales: params[:note_for_sales],
+                      user_id: current_user.id
                       )
+
     if @quote.save!
       flash[:success] = "Your quote has been created."
     else
