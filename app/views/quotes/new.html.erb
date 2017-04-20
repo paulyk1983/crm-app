@@ -4,6 +4,11 @@
 <%= form_tag '/quotes', method: :post do %>
 
   <div>
+    <%= label_tag :contact %>
+    <%= select_tag "contact", options_from_collection_for_select(@contacts, "id", "first_name") %>
+  </div>
+
+  <div>
     <%= label_tag :order_type %>
     <%= select_tag "order_type", options_for_select([ "Stock Item", "Wholesale - drop shop", "Wholesale - add inventory", "In-house work hand", "In-house work machine" ], :prompt=>"Please Select") %>
   </div>
