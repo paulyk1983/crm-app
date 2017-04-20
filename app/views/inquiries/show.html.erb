@@ -5,7 +5,7 @@
     
     <!-- THIS CAN BE MADE INTO A PARTIAL -->
     <% if @inquiry.status == "accepted" %>        
-        <a href="/quotes/new" class="btn btn-success">Send Quotes</a>           
+        <a href="/quotes/new?inquiry_id=<%= params[:id] %>" class="btn btn-success">Send Quotes</a>           
     <% else %>
         <%= form_tag "/inquiries/#{@inquiry.id}", method: 'patch', style: "display:inline-block;" do %>
             <%= hidden_field_tag "status", "rejected" %>
