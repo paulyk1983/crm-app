@@ -20,7 +20,7 @@
 
   <div>
     <%= label_tag :product_id %>
-    <%= select_tag "Product", options_from_collection_for_select(@products, "id", "sku"), options = {prompt: "Select Product"} %>
+    <%= select_tag "product_id", options_from_collection_for_select(@products, "id", "sku"), options = {prompt: "Select Product"} %>
   </div>
 
   <div>
