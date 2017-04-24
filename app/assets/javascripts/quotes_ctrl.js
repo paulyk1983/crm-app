@@ -1,9 +1,9 @@
 (function() {
-  angular.module('app').controller("inquiriesCtrl", ['$scope', '$http', function($scope, $http) {
+  angular.module('app').controller("quotesCtrl", ['$scope', '$http', function($scope, $http) {
    
     $scope.setup = function() {
-      $http.get('/api/v1/inquiries.json').then(function(response) {
-        $scope.inquiries = response.data;
+      $http.get('/api/v1/quotes.json').then(function(response) {
+        $scope.quotes = response.data;
         $scope.attribute = "first_name";
         $scope.sortOrder = false;
       });

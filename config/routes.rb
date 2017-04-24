@@ -51,6 +51,10 @@ Rails.application.routes.draw do
       get '/products' => 'products#index'
       get '/products/new' => 'products#new'
       post '/products' => 'products#create'
+
+      get '/quotes' => 'quotes#index'
+      get '/quotes/new' => 'quotes#new'
+      post '/quotes' => 'quotes#create'
     end
   end
 
