@@ -6,6 +6,7 @@
 
     <table class="table table-condensed table-striped">
       <tr>
+        <th>Product ID</th>
         <th>SKU</th>
         <th>Contact Name</th>
         <th>Company Name</th>
@@ -15,6 +16,9 @@
 
         <td>
           <p>{{ quote.product_id }}</p>
+        </td>
+        <td>
+          <p>{{ quote.product.sku }}</p>
         </td>
         <td>
           <p>{{ quote.contact_id }}</p>
