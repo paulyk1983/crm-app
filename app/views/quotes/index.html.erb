@@ -15,7 +15,7 @@
       <tr ng-repeat="quote in quotes | orderBy:attribute:sortOrder | limitTo:25">
 
         <td>
-          <p>{{ quote.product_id }}</p>
+          <p><a href="/quotes/{{ quote.id }}">{{ quote.product_id }} </a></p>
         </td>
         <td>
           <p>{{ quote.product.sku }}</p>
