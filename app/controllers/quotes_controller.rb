@@ -25,6 +25,12 @@ class QuotesController < ApplicationController
   end
   
   def create
+
+    if !params[:inquiry_id]
+      inquiry_id = 1
+    else
+      inquiry_id = params[:inquiry_id]
+    end
     @quote = Quote.new(
                       order_type: params[:order_type],
                       product_id: params[:product_id],
@@ -37,7 +43,8 @@ class QuotesController < ApplicationController
                       country_of_origin: params[:country_of_origin],
                       note_for_lead: params[:note_for_lead],
                       note_for_sales: params[:note_for_sales],
-                      user_id: current_user.id
+                      user_id: current_user.id,
+                      inquiry_id: params[:inquiry_id]
                       )
 
     if @quote.save!
