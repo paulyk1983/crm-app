@@ -6,6 +6,7 @@
 
     <table class="table table-condensed table-striped">
       <tr>
+        <th>Product ID</th>
         <th>SKU</th>
         <th>Contact Name</th>
         <th>Company Name</th>
@@ -14,7 +15,10 @@
       <tr ng-repeat="quote in quotes | orderBy:attribute:sortOrder | limitTo:25">
 
         <td>
-          <p>{{ quote.product_id }}</p>
+          <p><a href="/quotes/{{ quote.id }}">{{ quote.product_id }} </a></p>
+        </td>
+        <td>
+          <p>{{ quote.product.sku }}</p>
         </td>
         <td>
           <p>{{ quote.contact_id }}</p>
