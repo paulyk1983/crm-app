@@ -15,7 +15,7 @@
 </div>
 
 <a href="/quotes/<%= @quote.id %>/edit" class="btn btn-warning">Edit</a>
-<%= form_tag "/inquiries/#{@quote.inquiry.id}", method: 'patch', style: "display:inline-block;" do %>
+<%= form_tag "/quotes/#{@quote.id}/send", method: 'post', style: "display:inline-block;" do %>
     <%= hidden_field_tag "status", "Quote Sent" %>
     <%= submit_tag "Send Quote", class: "btn btn-success" %>  
 <% end %>  

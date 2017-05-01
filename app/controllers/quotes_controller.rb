@@ -17,6 +17,8 @@ class QuotesController < ApplicationController
     @quote = Quote.find_by(id: params[:id])
     @quote.update(quote_params)
 
+
+
     redirect_to "/quotes/#{@quote.id}"
   end
 
@@ -53,6 +55,19 @@ class QuotesController < ApplicationController
       flash[:error] = "Something went wrong. Quote was not updated"    
     end
     redirect_to "/quotes/#{@quote.id}"
+  end
+
+  def send_quote
+
+    current_url = request.base_url
+
+    quote = Quote.where(id: params[:id])
+    quote.send_email(quote, current_url)
+
+    flash[:succes] = "Your quote has been sent."
+    # flash[:error] = "Something went horribly wrong. Your quote was not sent."
+
+    redirect_to "/quotes/"
   end
 
   private
