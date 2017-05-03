@@ -27,7 +27,7 @@ Rails.application.routes.draw do
    get '/quotes/:id' => 'quotes#show'
    get '/quotes/:id/edit' => 'quotes#edit'
    patch '/quotes/:id' => 'quotes#update'
-   post '/quotes/:id/send' => 'quotes#send_quote' 
+   post '/send_quote' => 'quotes#send_quote' 
 
    get '/products' => 'products#index'
    post '/products' => 'products#create'

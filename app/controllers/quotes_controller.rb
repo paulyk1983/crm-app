@@ -61,7 +61,7 @@ class QuotesController < ApplicationController
 
     current_url = request.base_url
 
-    quote = Quote.where(id: params[:id])
+    quote = Quote.find_by(id: params[:id])
     quote.send_email(quote, current_url)
 
     flash[:succes] = "Your quote has been sent."

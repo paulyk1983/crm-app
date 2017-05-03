@@ -11,7 +11,7 @@ class Quote < ActiveRecord::Base
   def send_email(quote, url)
 
     from = Email.new(email: 'info@finishlinecorp.com')
-    to = Email.new(email: "#{quote.email}")
+    to = Email.new(email: "#{quote.contact.email}")
     subject = 'New Quote Sent'
 
     message = "Hey, your quote has been sent."
