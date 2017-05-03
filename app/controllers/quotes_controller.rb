@@ -4,8 +4,14 @@ class QuotesController < ApplicationController
   end
 
   def new
-    @products = Product.where(user_id: current_user.id)
-    @contacts = Contact.where(user_id: current_user.id)
+    if params[:inquiry_id]
+      @products = Product.where(user_id: current_user.id)
+      @contacts = Contact.where(user_id: current_user.id)
+      render "new.html.erb" 
+    else
+      flash[:danger] = "Cannot create a quote without an inquiry"
+      redirect_to "/inquiries"
+    end
   end
 
   def edit
@@ -17,8 +23,6 @@ class QuotesController < ApplicationController
     @quote = Quote.find_by(id: params[:id])
     @quote.update(quote_params)
 
-
-
     redirect_to "/quotes/#{@quote.id}"
   end
 
@@ -27,12 +31,6 @@ class QuotesController < ApplicationController
   end
   
   def create
-
-    if !params[:inquiry_id]
-      inquiry_id = 1
-    else
-      inquiry_id = params[:inquiry_id]
-    end
     @quote = Quote.new(
                       order_type: params[:order_type],
                       product_id: params[:product_id],
