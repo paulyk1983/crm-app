@@ -5,23 +5,6 @@ class DashboardController < ApplicationController
   def show
     @contacts = Contact.all
     @users = User.all
-    @a
-    # Mail.defaults do
-    #   delivery_method :smtp, {
-    #     :address => 'smtp.gmail.com',
-    #     :port => '587',
-    #     :user_name => ENV['EMAIL_USER'],
-    #     :password => ENV['EMAIL_PASSWORD'],
-    #     :authentication => :plain
-    #   }
-    # end
-
-    # Mail.new(
-    #   :to => 'paulyk1983@gmail.com',
-    #   :from => 'paulykdev@gmail.com',
-    #   :subject => 'New Quote Request',
-    #   :body => File.read('app/views/submission_email.html.erb')
-    # ).deliver!
 
     # @file = CSV.read('inquiries.csv')
     # @file.each_with_index do |row, i|

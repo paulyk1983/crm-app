@@ -67,6 +67,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(id: params[:id],
+                           user_id: current_user.id,
                            email: params[:email],
                            first_name: params[:first_name],
                            last_name: params[:last_name],
