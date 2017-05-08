@@ -6,19 +6,14 @@
 
     <table class="table table-condensed table-striped">
       <tr>
-        <th>Product ID</th>
         <th>SKU</th>
         <th>Contact Name</th>
         <th>Company Name</th>
         <th><p ng-click="changeOrder('created_at')"><a href="javascript:void(0)">Date Created</a></th>
       </tr>
       <tr ng-repeat="quote in quotes | orderBy:attribute:sortOrder | limitTo:25">
-
         <td>
-          <p><a href="/quotes/{{ quote.id }}">{{ quote.product_id }} </a></p>
-        </td>
-        <td>
-          <p>{{ quote.product.sku }}</p>
+          <p><a href="/quotes/{{ quote.product.sku }}">{{ quote.product.sku }} </a></p>
         </td>
         <td>
           <p>{{ quote.contact_id }}</p>
