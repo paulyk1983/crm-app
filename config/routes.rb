@@ -45,6 +45,14 @@ Rails.application.routes.draw do
    patch 'companies/:id' => 'companies#update'
    delete 'companies/:id' => 'companies#destroy'
 
+   get '/samples' => 'samples#index'
+   post '/samples' => 'samples#create'
+   get '/samples/new' => 'samples#new'
+   get '/samples/:id' => 'samples#show'
+   get 'samples/:id/edit' => 'samples#edit'
+   patch 'samples/:id' => 'samples#update'
+   delete 'samples/:id' => 'samples#destroy'
+
   namespace :api do
     namespace :v1 do
       get '/contacts' => 'contacts#index'
@@ -68,6 +76,10 @@ Rails.application.routes.draw do
       get '/companies' => 'companies#index'
       get '/companies/new' => 'companies#new'
       post '/companies' => 'companies#create'
+
+      get '/samples' => 'samples#index'
+      get '/samples/new' => 'samples#new'
+      post '/samples' => 'samples#create'
     end
   end
 
