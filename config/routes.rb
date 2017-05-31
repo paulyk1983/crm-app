@@ -37,6 +37,14 @@ Rails.application.routes.draw do
    patch 'products/:id' => 'products#update'
    delete 'products/:id' => 'products#destroy'
 
+   get '/companies' => 'companies#index'
+   post '/companies' => 'companies#create'
+   get '/companies/new' => 'companies#new'
+   get '/companies/:id' => 'companies#show'
+   get 'companies/:id/edit' => 'companies#edit'
+   patch 'companies/:id' => 'companies#update'
+   delete 'companies/:id' => 'companies#destroy'
+
   namespace :api do
     namespace :v1 do
       get '/contacts' => 'contacts#index'
@@ -56,6 +64,10 @@ Rails.application.routes.draw do
       get '/quotes' => 'quotes#index'
       get '/quotes/new' => 'quotes#new'
       post '/quotes' => 'quotes#create'
+
+      get '/companies' => 'companies#index'
+      get '/companies/new' => 'companies#new'
+      post '/companies' => 'companies#create'
     end
   end
 
