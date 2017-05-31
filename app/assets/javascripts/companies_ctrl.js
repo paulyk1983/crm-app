@@ -4,8 +4,8 @@
    
     $scope.setup = function() {
       $http.get('/api/v1/companies.json').then(function(response) {
-        $scope.products = response.data;
-        $scope.attribute = "sku";
+        $scope.companies = response.data;
+        $scope.attribute = "name";
         $scope.sortOrder = false;
       });
     };
