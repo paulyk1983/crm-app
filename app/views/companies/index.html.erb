@@ -1,0 +1,37 @@
+<div class="container" ng-app="app">
+  <div ng-controller="companiesCtrl" ng-init="setup()">
+    <h1>Companies</h1>
+
+    <p><%= link_to "Add a new company", "/companies/new" %></p>
+
+    <table class="table table-condensed table-striped">
+      <tr>
+        <th><p ng-click="changeOrder('short_description')"><a href="javascript:void(0)">Name</a></p></th>
+        <th>Twitter Handle</th>
+        <th>Company Notes</th>
+        <th>Address</th>
+        <th>Phone</th>
+      </tr>
+      <tr ng-repeat="company in companies | orderBy:attribute:sortOrder | limitTo:25">
+        <td>
+
+          <p><a ng-href="/companies/{{ company.id }}">{{ company.name }}</a></p>
+        </td>
+        <td>
+          <p>{{ company.twitter_handle }}</p>
+        </td>
+        <td>
+          <p>{{ company.company_notes }}</p>
+        </td>
+        <td>
+          <p>{{ company.address }}</p>
+        </td>
+        <td>
+          <p>{{ company.phone_number }}</p>
+        </td>
+      </tr>
+    </table>
+
+    
+  </div>
+</div>
