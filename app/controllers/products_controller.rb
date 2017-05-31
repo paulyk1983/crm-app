@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 		@product = Product.create(product_params.merge(user_id: current_user.id))
 
 		if @product.save
-		  flash[:success] = ["You Successfully Created #{@product.description}"]
+		  flash[:success] = ["You Successfully Created #{@product.short_description}"]
 		  redirect_to '/products'
 		else
 		  flash.now[:danger] = "Something Went Wrong. Please Try Again"
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
 		@product.update(product_params)
 
 		if @product.save
-		  flash[:success] = "You've Updated #{@product.description}"
+		  flash[:success] = "You've Updated #{@product.short_description}"
 		  render :show
 		else
 		  flash.now[:danger] = "Something Went Wrong. Please Try Again"
