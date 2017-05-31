@@ -1,0 +1,34 @@
+<h1> Company Detail </h1>
+
+<a href="/companies/<%= @company.id %>/edit" class="btn btn-warning">Edit</a>
+
+<table>
+  <tr>
+    <td>
+      <h4><b> Name: </b> <%= @company.name %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Twitter Handle: </b> <%= @company.twitter_handle %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Notes: </b> <%= @company.company_notes %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Address: </b> <%= @company.address %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Phone: </b> <%= @company.phone_number %> </h4>
+    </td>
+  </tr>
+</table>
+  <p><%= link_to "Back To Companies", "/companies" %></p>
+  <p><%= link_to "Edit Company", "/companies/#{@company.id}/edit" %></p>
+  <p><%= link_to "Delete This Company", "/companies/#{@company.id}", method: :delete %></p>

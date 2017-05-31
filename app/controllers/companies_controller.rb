@@ -42,15 +42,10 @@ class CompaniesController < ApplicationController
 	end
 
 	def destroy
-		@company = Company.find_by(params[:id])
-
-		if @company.destroy
-		  flash[:success] = "Company Deleted."
-		  render :index
-		else
-		  flash.now[:warning] = "Something Went Wrong. Please Try Again"
-		  render :show
-		end
+				@company = Company.find_by(id: params[:id])
+		    @company.destroy
+		    flash[:success] = 'Company successfully deleted!'
+		    redirect_to '/companies'
 	end
 
 	private

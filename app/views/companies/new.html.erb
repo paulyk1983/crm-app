@@ -1,0 +1,29 @@
+<h2>Add A New Company</h2>
+<div class="container-fluid">
+	<%= form_tag '/companies', method: :post do %>
+
+		<div>
+		  <%= label_tag :name %><br />
+		  <%= text_field_tag :name," ", :autofocus => true %>
+		</div>
+		<div>
+		  <%= label_tag :twitter_handle %><br />
+		  <%= text_field_tag :twitter_handle %>
+		</div>
+		<div>
+		  <%= label_tag :company_notes %><br />
+		  <%= text_area_tag :company_notes %>
+		</div>
+		<div>
+		  <%= label_tag :address %><br />
+		  <%= text_field_tag :address %>
+		</div>
+		<div>
+		  <%= label_tag :phone_number %><br />
+		  <%= text_field_tag :phone_number %>
+		</div>
+		<div class="actions">
+		  <%= submit_tag "Save Company", :class => 'btn btn-large btn-primary'  %>
+		</div>
+	<% end %>
+</div>
