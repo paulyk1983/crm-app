@@ -1,7 +1,12 @@
 class Api::V1::CompaniesController < ApplicationController
   def index
-    @companies = Company.all
-    render 'index.json.jbuilder'
+
+    if current_user
+      @companies = Company.all
+      render 'index.json.jbuilder'
+    else
+      redirect_to '/'
+    end
 
   end
 
