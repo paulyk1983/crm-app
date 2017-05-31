@@ -1,4 +1,5 @@
 json.array! @products.each do |product|
+	json.id product.id
   json.short_description product.short_description
   json.sku product.sku
   json.created_at product.created_at

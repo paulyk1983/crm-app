@@ -14,6 +14,14 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.create(product_params.merge(user_id: current_user.id))
+
+		if @product.save
+		  flash[:success] = ["You Successfully Created #{@product.short_description}"]
+		  redirect_to '/products'
+		else
+		  flash.now[:danger] = "Something Went Wrong. Please Try Again"
+		  render :new
+		end
 	end
 
 	def update
@@ -21,7 +29,7 @@ class ProductsController < ApplicationController
 		@product.update(product_params)
 
 		if @product.save
-		  flash[:success] = "You've Updated #{@product.sku}"
+		  flash[:success] = "You've Updated #{@product.short_description}"
 		  render :show
 		else
 		  flash.now[:danger] = "Something Went Wrong. Please Try Again"
@@ -53,7 +61,7 @@ class ProductsController < ApplicationController
 	  # with per-user checking of permissible attributes.
 	  def product_params
 	    params.permit(
-	      :user_id,
+	    	:user_id,
 	    	:sku, 
 	    	:unit_price, 
 	    	:cost, 
