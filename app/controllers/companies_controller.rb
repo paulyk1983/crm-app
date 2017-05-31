@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 	def index
-		@companies = Company.all
+		@companies = Company.where(user_id: current_user.id)
 	end
 
 	def new
