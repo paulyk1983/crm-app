@@ -1,41 +1,41 @@
 <h2>Add A New Product</h2>
 <div class="container-fluid">
-	<%= form_for @product, url: {action: "create"} do |f| %>
+	<%= form_tag '/products', method: :post do %>
 
-		<div class="field">
-		  <%= f.label :sku %><br />
-		  <%= f.text_field :sku, autofocus: true %>
+		<div>
+		  <%= label_tag :sku %><br />
+		  <%= text_field_tag :sku," ", :autofocus => true %>
 		</div>
 		<div>
-		  <%= f.label :short_description %><br />
-		  <%= f.text_field :short_description %>
+		  <%= label_tag :short_description %><br />
+		  <%= text_field_tag :short_description %>
 		</div>
 		<div>
-		  <%= f.label :description %><br />
-		  <%= f.text_area :description %>
+		  <%= label_tag :description %><br />
+		  <%= text_area_tag :description %>
 		</div>
 		<div>
-		  <%= f.label :category %><br />
-		  <%= f.text_field :category %>
+		  <%= label_tag :category %><br />
+		  <%= text_field_tag :category %>
 		</div>
 		<div>
-		  <%= f.label :vendor %><br />
-		  <%= f.text_field :vendor %>
+		  <%= label_tag :vendor %><br />
+		  <%= text_field_tag :vendor %>
 		</div>
 		<div>
-		  <%= f.label :cost %><br />
-		  <%= f.number_field :cost, step: :any %>
+		  <%= label_tag :cost %><br />
+		  <%= number_field_tag :cost, step: :any %>
 		</div>
 		<div>
-	  	<%= f.label :unit_price %><br />
-		  <%= f.number_field :unit_price, step: :any %>
+	  	<%= label_tag :unit_price %><br />
+		  <%= number_field_tag :unit_price, step: :any %>
 		</div>
 		<div>
-			<%= f.label :qty_in_stock %><br />
-			<%= f.number_field :qty_in_stock, step: :any %>
+			<%= label_tag :qty_in_stock %><br />
+			<%= number_field_tag :qty_in_stock, step: :any %>
 		</div>
 		<div class="actions">
-		  <%= f.submit "Save Product", :class => 'btn btn-large btn-primary'  %>
+		  <%= submit_tag "Save Product", :class => 'btn btn-large btn-primary'  %>
 		</div>
 	<% end %>
 </div>

@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.create(product_params.merge(user_id: current_user.id))
+		@product.save
 
 		if @product.save
 		  flash[:success] = ["You Successfully Created #{@product.short_description}"]
