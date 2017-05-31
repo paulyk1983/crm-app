@@ -29,4 +29,6 @@
     </td>
   </tr>
 </table>
-<%= link_to "Back to index", "/companies", :class => "btn btn-primary" %>
+  <p><%= link_to "Back To Companies", "/companies" %></p>
+  <p><%= link_to "Edit Company", "/companies/#{@company.id}/edit" %></p>
+  <p><%= link_to "Delete This Company", "/companies/#{@company.id}", method: :delete %></p>

@@ -44,4 +44,6 @@
     </td>
   </tr>
 </table>
-<%= link_to "Back to index", "/products", :class => "btn btn-primary" %>
+  <p><%= link_to "Back To Products", "/products" %></p>
+  <p><%= link_to "Edit Product", "/products/#{@product.id}/edit" %></p>
+  <p><%= link_to "Delete This Product", "/products/#{@product.id}", method: :delete %></p>

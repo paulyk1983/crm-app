@@ -43,15 +43,12 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
-		@product = Product.find_by(params[:id])
 
-		if @product.destroy
-		  flash[:success] = "Product Deleted."
-		  render :index
-		else
-		  flash.now[:warning] = "Something Went Wrong. Please Try Again"
-		  render :show
-		end
+		@product = Product.find_by(id: params[:id])
+    @product.destroy
+    flash[:success] = 'Product successfully deleted!'
+    redirect_to '/products'
+		
 	end
 
 	private
