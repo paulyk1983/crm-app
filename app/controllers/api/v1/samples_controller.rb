@@ -1,6 +1,6 @@
   def index
     if current_user
-      @samples = Sample.where(user_id: current_user.id)
+      @samples = Sample.all
       render 'index.json.jbuilder'
     else
       redirect_to '/'

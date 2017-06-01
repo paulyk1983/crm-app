@@ -1,7 +1,11 @@
 class Api::V1::ProductsController < ApplicationController
   def index
-    @products = Product.all
-    render 'index.json.jbuilder'
+    if current_user
+      @products = Product.all
+      render 'index.json.jbuilder'
+    else
+      redirect_to '/'
+    end
 
   end
 
