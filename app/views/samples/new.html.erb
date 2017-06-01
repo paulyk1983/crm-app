@@ -1,0 +1,97 @@
+<h2>Add A New Sample</h2>
+<div class="container-fluid">
+	<%= form_tag '/samples', method: :post do %>
+
+		<div>
+		  <%= label_tag :name %><br />
+		  <%= text_field_tag :name," ", :autofocus => true %>
+		</div>
+		<div>
+		  <%= label_tag :contact_id %><br />
+		  <%= number_field_tag :contact_id %>
+		</div>
+		<div>
+		  <%= label_tag :company_id %><br />
+		  <%= number_field_tag :company_id %>
+		</div>
+		<div>
+		  <%= label_tag :inquiry_id %><br />
+		  <%= number_field_tag :inquiry_id %>
+		</div>
+		<div>
+		  <%= label_tag :quote_id %><br />
+		  <%= number_field_tag :quote_id %>
+		</div>
+		<div>
+		  <%= label_tag :product_id %><br />
+		  <%= number_field_tag :product_id %>
+		</div>
+		<div>
+	  	<%= label_tag :status %><br />
+		  <%= text_field_tag :status %>
+		</div>
+		<div>
+			<%= label_tag :note_to_receiver %><br />
+			<%= text_area_tag :note_to_receiver %>
+		</div>
+		<div>
+			<%= label_tag :note_to_sales %><br />
+			<%= text_area_tag :note_to_sales %>
+		</div>
+		<div>
+			<%= label_tag :price %><br />
+			<%= text_field_tag :price%>
+		</div>
+		<div>
+			<%= label_tag :lead_time %><br />
+			<%= text_field_tag :lead_time%>
+		</div>
+		<div>
+			<%= label_tag :street %><br />
+			<%= text_field_tag :street%>
+		</div>
+		<div>
+			<%= label_tag :suite %><br />
+			<%= text_field_tag :suite%>
+		</div>
+		<div>
+			<%= label_tag :city %><br />
+			<%= text_field_tag :city%>
+		</div>
+		<div>
+			<%= label_tag :state %><br />
+			<%= text_field_tag :state%>
+		</div>
+		<div>
+			<%= label_tag :zip_code %><br />
+			<%= text_field_tag :zip_code%>
+		</div>
+		<div>
+			<%= label_tag :shipping_method %><br />
+			<%= text_field_tag :shipping_method%>
+		</div>
+		<div>
+			<%= label_tag :drop_ship %><br />
+			<%= check_box_tag :drop_ship%>
+		</div>
+		<div>
+			<%= label_tag :custom_color %><br />
+			<%= text_field_tag :custom_color%>
+		</div>
+		<div>
+			<%= label_tag :custom_length %><br />
+			<%= text_field_tag :custom_length%>
+		</div>
+		<div>
+			<%= label_tag :custom_width %><br />
+			<%= text_field_tag :custom_width%>
+		</div>
+		<div>
+			<%= label_tag :custom_other %><br />
+			<%= text_field_tag :custom_other%>
+		</div>
+		<div class="actions">
+		  <%= submit_tag "Save Sample", :class => 'btn btn-large btn-primary'  %>
+		</div>
+	<% end %>
+</div>

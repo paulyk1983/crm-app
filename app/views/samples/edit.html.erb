@@ -1,0 +1,99 @@
+<div style="padding:25px;">
+  <h1>Edit Sample</h1>
+  <%= form_tag "/samples/#{@sample.id}", method: :patch do %>
+  	<div>
+  		<%= hidden_field_tag :user_id, @sample.user_id %>
+  	</div>
+    <div>
+      <%= label_tag :name %>
+      <%= text_field_tag :name, @sample.name %>
+    </div> 
+    <div>
+      <%= label_tag :contact_id %>
+      <%= number_field_tag :contact_id, @sample.contact_id %>
+    </div>
+    <div>
+      <%= label_tag :company_id %>
+      <%= number_field_tag :company_id, @sample.company_id %>
+    </div>
+    <div>
+      <%= label_tag :inquiry_id %>
+      <%= number_field_tag :inquiry_id, @sample.inquiry_id %>
+    </div> 
+    <div>
+      <%= label_tag :quote_id %>
+      <%= number_field_tag :quote_id, @sample.quote_id %>
+    </div>
+    <div>
+      <%= label_tag :product_id %>
+      <%= number_field_tag :product_id, @sample.product_id %>
+    </div>   
+    <div>
+      <%= label_tag :status %>
+      <%= text_field_tag :status, @sample.status %>
+    </div> 
+    <div>
+      <%= label_tag :note_to_receiver %>
+      <%= text_area_tag :note_to_receiver, @sample.note_to_receiver %>
+    </div>
+    <div>
+      <%= label_tag :note_to_sales %>
+      <%= text_area_tag :note_to_sales, @sample.note_to_sales %>
+    </div>
+    <div>
+      <%= label_tag :price %>
+      <%= text_field_tag :price, @sample.price%>
+    </div>
+    <div>
+      <%= label_tag :lead_time %>
+      <%= text_field_tag :lead_time, @sample.lead_time %>
+    </div>
+    <div>
+      <%= label_tag :street %>
+      <%= text_field_tag :street, @sample.street %>
+    </div>
+    <div>
+      <%= label_tag :suite %>
+      <%= text_field_tag :suite, @sample.suite %>
+    </div>
+    <div>
+      <%= label_tag :city %>
+      <%= text_field_tag :city, @sample.city %>
+    </div>
+    <div>
+      <%= label_tag :state %>
+      <%= text_field_tag :state, @sample.state %>
+    </div>
+    <div>
+      <%= label_tag :zip_code %>
+      <%= text_field_tag :zip_code, @sample.zip_code %>
+    </div>
+    <div>
+      <%= label_tag :shipping_method %>
+      <%= text_field_tag :shipping_method, @sample.shipping_method %>
+    </div>
+    <div>
+      <%= label_tag :drop_ship %>
+      <%= text_field_tag :drop_ship, @sample.drop_ship %>
+    </div>
+    <div>
+      <%= label_tag :custom_color %>
+      <%= text_field_tag :custom_color, @sample.custom_color %>
+    </div>
+    <div>
+      <%= label_tag :custom_length %>
+      <%= text_field_tag :custom_length, @sample.custom_length %>
+    </div>
+    <div>
+      <%= label_tag :custom_width %>
+      <%= text_field_tag :custom_width, @sample.custom_width %>
+    </div>
+    <div>
+      <%= label_tag :custom_other %>
+      <%= text_field_tag :custom_other, @sample.custom_other %>
+    </div>
+    <div>
+      <%= submit_tag "Submit" %>
+    </div>
+  <% end %>
+</div>

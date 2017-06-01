@@ -1,0 +1,109 @@
+<h1> Sample Detail </h1>
+
+<a href="/samples/<%= @sample.id %>/edit" class="btn btn-warning">Edit</a>
+
+<table>
+  <tr>
+    <td>
+      <h4><b> Name: </b> <%= @sample.name %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Contact ID: </b> <%= @sample.contact_id %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Company ID: </b> <%= @sample.company_id %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Inquiry ID: </b> <%= @sample.inquiry_id %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Quote ID: </b> <%= @sample.quote_id %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Product ID:</b> <%= @sample.product_id %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Status: </b> <%= @sample.status %> </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Note To Receiver: </b><%= @sample.note_to_receiver %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Note To Sales: </b><%= @sample.note_to_sales %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Price: </b><%= @sample.price %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Lead Time: </b><%= @sample.lead_time %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Street: </b><%= @sample.street %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Suite: </b><%= @sample.suite %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> City: </b><%= @sample.city %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> State: </b><%= @sample.state %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> ZIP Code: </b><%= @sample.zip_code %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Custom Color: </b><%= @sample.custom_color %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Custom Length: </b><%= @sample.custom_length %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Custom Width: </b><%= @sample.custom_width %></h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><b> Custom Other: </b><%= @sample.custom_other %></h4>
+    </td>
+  </tr>
+</table>
+  <p><%= link_to "Back To Samples", "/samples" %></p>
+  <p><%= link_to "Edit Sample", "/samples/#{@sample.id}/edit" %></p>
+  <p><%= link_to "Delete This Sample", "/samples/#{@sample.id}", method: :delete %></p>

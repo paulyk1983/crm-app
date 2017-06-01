@@ -1,18 +1,18 @@
 class SamplesController < ApplicationController
 		def index
-			@samples = sample.all
+			@samples = Sample.all
 		end
 
 		def new
-			@sample = sample.new
+			@sample = Sample.new
 		end
 
 		def edit
-			@sample = sample.find_by(id: params[:id])
+			@sample = Sample.find_by(id: params[:id])
 		end
 
 		def create
-			@sample = sample.create(sample_params.merge(user_id: current_user.id))
+			@sample = Sample.create(sample_params.merge(user_id: current_user.id))
 
 			if @sample.save
 			  flash[:success] = ["You Successfully Created #{@sample.name}"]
@@ -24,7 +24,7 @@ class SamplesController < ApplicationController
 		end
 
 		def update
-			@sample = sample.find_by(id: params[:id])
+			@sample = Sample.find_by(id: params[:id])
 			@sample.update(sample_params)
 
 			if @sample.save
@@ -38,12 +38,12 @@ class SamplesController < ApplicationController
 		end
 
 		def show
-			@sample = sample.find_by(id: params[:id])
+			@sample = Sample.find_by(id: params[:id])
 		end
 
 		def destroy
 
-			@sample = sample.find_by(id: params[:id])
+			@sample = Sample.find_by(id: params[:id])
 	    @sample.destroy
 	    flash[:success] = 'sample successfully deleted!'
 	    redirect_to '/samples'
