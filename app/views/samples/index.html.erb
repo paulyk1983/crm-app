@@ -1,0 +1,103 @@
+<div class="container" ng-app="app">
+  <div ng-controller="samplesCtrl" ng-init="setup()">
+    <h1>Samples</h1>
+
+    <p><%= link_to "Add a new sample", "/samples/new" %></p>
+
+    <table class="table table-condensed table-striped">
+      <tr>
+        <th><p ng-click="changeOrder('short_description')"><a href="javascript:void(0)">Name</a></p></th>
+        <th>Contact ID</th>
+        <th>Company ID</th>
+        <th>Inquiry ID</th>
+        <th>Quote ID</th>
+        <th>Product ID</th>
+        <th>Note to Receiver</th>
+        <th>Note to Sales</th>
+        <th>Price</th>
+        <th>Lead Time</th>
+        <th>Street</th>
+        <th>Suite</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Shipping Method</th>
+        <th>Drop Ship</th>
+        <th>Custom Color</th>
+        <th>Custom Length</th>
+        <th>Custom Width</th>
+        <th>Custom Other</th>
+      </tr>
+
+      <tr ng-repeat="sample in samples | orderBy:attribute:sortOrder | limitTo:25">
+        <td>
+
+          <p><a ng-href="/samples/{{ sample.id }}">{{ sample.name }}</a></p>
+        </td>
+        <td>
+          <p>{{ sample.contact_id }}</p>
+        </td>
+        <td>
+          <p>{{ sample.company_id }}</p>
+        </td>
+        <td>
+          <p>{{ sample.inquiry_id }}</p>
+        </td>
+        <td>
+          <p>{{ sample.quote_id }}</p>
+        </td>
+        <td>
+          <p>{{ sample.product_id }}</p>
+        </td>
+        <td>
+          <p>{{ sample.status }}</p>
+        </td>
+        <td>
+          <p>{{ sample.note_to_receiver }}</p>
+        </td>
+        <td>
+          <p>{{ sample.note_to_sales }}</p>
+        </td>
+        <td>
+          <p>{{ sample.price }}</p>
+        </td>
+        <td>
+          <p>{{ sample.lead_time }}</p>
+        </td>
+        <td>
+          <p>{{ sample.street }}  </p>
+        </td>
+        <td>
+          <p>{{ sample.suite }}  </p>
+        </td>
+        <td>
+          <p>{{ sample.city }}  </p>
+        </td>
+        <td>
+          <p>{{ sample.state }}  </p>
+        </td>
+        <td>
+          <p>{{ sample.zip_code }}  </p>
+        </td>
+        <td>
+          <p>{{ sample.shipping_method }}</p>
+        </td>
+        <td>
+          <p>{{ sample.drop_ship}}</p>
+        </td>
+        <td>
+          <p>{{ sample.custom_color }}</p>
+        </td>
+        <td>
+          <p>{{ sample.custom_length }}</p>
+        </td>
+        <td>
+          <p>{{ sample.custom_width }}</p>
+        </td>
+        <td>
+          <p>{{ sample.custom_other }}</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
